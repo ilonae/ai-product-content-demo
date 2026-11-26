@@ -15,7 +15,7 @@ export function ShareButton({ id }: { id: string }) {
   }
   return (
     <>
-      <button onClick={share} className="inline-flex min-h-11 items-center gap-2 rounded-[2px] border border-sand bg-card px-4 text-sm font-semibold hover:border-brown/50">
+      <button onClick={share} className="inline-flex min-h-11 items-center gap-2 rounded-none border border-sand bg-card px-4 text-sm font-semibold hover:border-brown/50">
         Share
       </button>
       {toast}

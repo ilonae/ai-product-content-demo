@@ -71,7 +71,7 @@ export function PublishPanel({ runId }: { runId: string }) {
 
   const demo = info?.connectors.find((c) => !c.ownerOnly)
   const stores = info?.connectors.filter((c) => c.ownerOnly) ?? []
-  const btn = 'inline-flex min-h-11 items-center rounded-[2px] px-4 text-sm font-semibold disabled:opacity-50'
+  const btn = 'inline-flex min-h-11 items-center rounded-none px-4 text-sm font-semibold disabled:opacity-50'
 
   const result = (id: string) => {
     const st = states[id]
@@ -91,8 +91,8 @@ export function PublishPanel({ runId }: { runId: string }) {
   }
 
   return (
-    <div className="border border-sand bg-card p-5">
-      <h2 className="text-lg font-semibold">Publish as a draft</h2>
+    <div className="border-t border-sand bg-card p-5">
+      <h2 className="text-base font-semibold">Publish as a draft</h2>
       <p className="mt-1 text-sm text-muted">Name, description, key features, SEO, tags, price, SKU and the image arrive as a draft. Nothing goes live without a person.</p>
 
       <div className="mt-4 flex items-center gap-3">

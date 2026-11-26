@@ -31,7 +31,7 @@ export function Stepper({ current, progress }: { current: number; progress: numb
                     className={`transition-[stroke-dashoffset,stroke] duration-500 ease-out ${done ? 'stroke-sage' : 'stroke-brown'}`}
                   />
                 </svg>
-                <span className={`absolute inset-0 grid place-items-center font-mono text-xs font-bold ${done ? 'text-sage' : active ? 'text-brown' : 'text-muted'}`}>
+                <span className={`absolute inset-0 grid place-items-center font-mono text-xs font-semibold ${done ? 'text-sage' : active ? 'text-brown' : 'text-muted'}`}>
                   {done ? '✓' : active && p > 0 ? `${Math.round(p * 100)}` : i + 1}
                 </span>
               </div>

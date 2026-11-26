@@ -1,0 +1,36 @@
+/* Theme 2 "Plain Workshop": same colours as theme 1, quieter type, tighter spacing, fewer boxes.
+   Change list vs theme 1:
+   - Fonts: IBM Plex Sans for text AND headings (was Space Grotesk + DM Sans); IBM Plex Mono only for data.
+   - Sizes: h1 44px (was 72px), h2 26px, body 16px / 1.6; labels 12px sentence case (was 10.5px caps, wide tracking).
+   - Section numbers: inline 13px mono next to the label (was 40px light numerals).
+   - Spacing: sections 56px top/bottom (was ~96px); heading-to-content 20px.
+   - Borders: no outline boxes; 1px top rules in a darker sand; radius 0; inputs 1px underline-weight border.
+   - No chip/pill backgrounds for metadata; no grid backdrop. */
+:root {
+  --paper: #faf8f4;
+  --card: #ffffff;
+  --ink: #4a3a31;
+  --brown: #7a5a48;
+  --brown-dark: #664a3b;
+  --muted: #85705f;
+  --oat: #f2eee8;
+  --rule: #cfc4b6;        /* darker than sand (#ddd4c8) so a single rule is enough */
+  --rule-soft: #e6dfd5;
+  --sage: #6e9e7a;
+  --clay: #d9663f;
+
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --text-h1: 44px;  --lh-h1: 1.08;
+  --text-h2: 26px;  --lh-h2: 1.2;
+  --text-h3: 18px;
+  --text-body: 16px; --lh-body: 1.6;
+  --text-small: 14px;
+  --text-label: 12px;
+
+  --section-y: 56px;
+  --gap-head: 20px;
+  --radius: 0px;
+  --border: 1px solid var(--rule);
+}

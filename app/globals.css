@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Theme "Warm Studio" (.superdesign/design_iterations/theme_1.css) */
+/* Colours: theme 1 "Warm Studio"; type, spacing and borders: theme 2 "Plain Workshop" (.superdesign/design_iterations/theme_2.css) */
 @theme {
   --color-paper: #faf8f4;
   --color-card: #ffffff;
@@ -10,7 +10,8 @@
   --color-brown-deep: #5c4436;
   --color-muted: #85705f;
   --color-oat: #f2eee8;
-  --color-sand: #ddd4c8;
+  --color-sand: #cfc4b6;
+  --color-rule-soft: #e6dfd5;
   --color-clay: #d9663f;
   --color-clay-dark: #c2532f;
   --color-apricot: #fbe3c8;
@@ -20,9 +21,9 @@
   --color-wash: #f7f4ef;
   --color-wash-active: #efe9e0;
 
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
   --shadow-soft: none;
@@ -57,19 +58,12 @@
 }
 
 html { background: var(--color-paper); color: var(--color-ink); scroll-behavior: smooth; }
-body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 ::selection { background: var(--color-apricot); }
 :focus-visible { outline: 2px solid var(--color-brown); outline-offset: 2px; }
-h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
-/* Frame caption, like the label on a contact sheet */
-.caption { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
-
-/* Light table: a fine grid on white, like a lightbox surface */
-.lighttable {
-  background-image: linear-gradient(to right, color-mix(in srgb, var(--color-sand) 45%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--color-sand) 45%, transparent) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
+/* Small label: plain 12px, sentence case. Monospace is reserved for data. */
+.caption { font-family: var(--font-sans); font-size: 12px; line-height: 1.4; color: var(--color-muted); }
 
 /* Dropzone: plain dashed hairline */
 .dropzone { border: 1px dashed color-mix(in srgb, var(--color-brown) 45%, transparent); }

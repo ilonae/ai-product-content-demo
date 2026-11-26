@@ -16,7 +16,7 @@ function Dot({ state, n }: { state: 'ok' | 'error' | 'running' | 'pending'; n: n
         <svg className="check-draw" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
       </span>
     )
-  if (state === 'error') return <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brick text-xs font-bold text-white">!</span>
+  if (state === 'error') return <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brick text-xs font-semibold text-white">!</span>
   if (state === 'running')
     return (
       <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-apricot">
@@ -36,7 +36,7 @@ export function StageTimeline({ stages, running, variant = 'list', retouch }: { 
         const s = byName.get(name)
         const state = s ? s.status : running === name ? 'running' : 'pending'
         return (
-          <li key={name} className="flex items-start gap-3 rounded-[3px] px-2 py-2">
+          <li key={name} className="flex items-start gap-3 rounded-none px-2 py-2">
             <Dot state={state} n={i + 1} />
             <div className="min-w-0 flex-1">
               <div className="flex items-baseline justify-between gap-3">
@@ -45,7 +45,7 @@ export function StageTimeline({ stages, running, variant = 'list', retouch }: { 
               </div>
               {variant === 'waterfall' && s && (
                 <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-oat">
-                  <div className="h-full rounded-full bg-gradient-to-r from-sand to-brown" style={{ width: `${Math.max(3, (s.ms / maxMs) * 100)}%` }} />
+                  <div className="h-full rounded-full bg-brown" style={{ width: `${Math.max(3, (s.ms / maxMs) * 100)}%` }} />
                 </div>
               )}
               {s && (s.provider || s.model || s.note) && (

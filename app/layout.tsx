@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
-import { DM_Sans, IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
+import { IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google'
 import { HashScroll } from '@/components/HashScroll'
 import './globals.css'
 
-// Contact-sheet type: Space Grotesk for headlines, DM Sans for text, IBM Plex Mono for frame captions.
-const sans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' })
-const display = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
+// Theme 2 "Plain Workshop": IBM Plex Sans for text and headings, IBM Plex Mono only for data.
+const sans = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-plex-sans' })
 const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-plex-mono' })
 
 export const metadata: Metadata = {
@@ -17,12 +16,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <body className="min-h-screen">
         <header className="sticky top-0 z-30 border-b border-sand bg-paper/95 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
-            <a href="/" className="font-mono text-[13px] font-medium uppercase tracking-[0.14em] text-ink">
-              Product<span className="text-muted">/</span>Listing
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+            <a href="/" className="text-[15px] font-semibold text-ink">
+              Product <span className="font-normal text-muted">/</span> listing
             </a>
             <nav className="flex shrink-0 items-center gap-5 whitespace-nowrap text-sm text-muted">
               <a href="/#how" className="hidden hover:text-ink sm:inline">How it works</a>

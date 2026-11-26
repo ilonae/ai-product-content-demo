@@ -296,7 +296,7 @@ export function Workbench({ presets, samples, siteKey }: Props) {
   const noRunsLeft = status && status.live && status.remaining <= 0
   const canGenerate = discount !== 0 && Boolean(file) && step === 'prepare' && !atCapacity && !noRunsLeft && (!siteKey || Boolean(token)) && (voice !== 'custom' || bio.trim().length > 0)
   const activePreset = presets.find((p) => p.id === voice)
-  const field = 'mt-1 w-full rounded-[3px] border border-sand bg-card px-3 py-2.5 text-sm outline-none transition focus:border-brown focus:shadow-[var(--shadow-glow)]'
+  const field = 'mt-1 w-full rounded-none border border-sand bg-card px-3 py-2.5 text-sm outline-none transition focus:border-brown focus:shadow-[var(--shadow-glow)]'
   const studioSamples = samples.filter((s) => s.kind === 'studio')
   const rejectedSample = samples.find((s) => s.kind === 'rejected')
 
@@ -329,13 +329,13 @@ export function Workbench({ presets, samples, siteKey }: Props) {
             className={`dropzone relative h-full cursor-pointer overflow-hidden transition-colors duration-150 ${over ? 'is-over bg-wash-active' : 'bg-wash hover:bg-wash-active/70'}`}
           >
             <div className="flex h-full flex-col items-center justify-center px-5 pb-12 pt-14 text-center">
-              <p className="text-lg font-semibold">Drop a studio photo, paste it, or browse</p>
+              <p className="font-medium">Drop a studio photo, paste it, or browse</p>
               <p className="mt-1 text-sm text-muted">Light plain backdrop · soft even light · at least 1000 px · JPEG, PNG or WebP up to 4 MB</p>
               {studioSamples.length > 0 && (
                 <div className="mt-6 flex flex-wrap items-center justify-center gap-2" onClick={(e) => e.stopPropagation()}>
                   <span className="text-sm text-muted">No photo handy?</span>
                   {studioSamples.map((s) => (
-                    <button key={s.id} type="button" onClick={() => useSample(s)} className="min-h-11 rounded-[2px] border border-sand bg-card px-4 text-sm font-medium transition hover:border-brown/50 active:scale-95">
+                    <button key={s.id} type="button" onClick={() => useSample(s)} className="min-h-11 rounded-none border border-sand bg-card px-4 text-sm font-medium transition hover:border-brown/50 active:scale-95">
                       {s.label}
                     </button>
                   ))}
@@ -374,16 +374,16 @@ export function Workbench({ presets, samples, siteKey }: Props) {
         <div key={shake} className={`space-y-6 ${shake ? 'animate-shake' : ''}`}>
           <PhotoEditor ref={editorRef} bitmap={bitmap} ops={ops} onOpsChange={setOps} aiRetouch={status?.aiRetouch} />
 
-          <div className="grid gap-6 rounded-[3px] border border-sand bg-card p-5 shadow-[var(--shadow-soft)] sm:p-6">
+          <div className="grid gap-6 border-t border-sand bg-card p-5 sm:p-6">
             <div>
               <p className="mb-2 text-sm font-semibold">Brand voice</p>
               <div className="flex flex-wrap gap-2">
                 {presets.map((p) => (
-                  <button key={p.id} type="button" onClick={() => pickVoice(p.id)} aria-pressed={voice === p.id} className={`min-h-11 rounded-[2px] border px-4 text-sm font-medium transition-colors duration-200 ${voice === p.id ? 'border-brown bg-brown text-paper' : 'border-sand bg-card hover:border-brown/50'}`}>
+                  <button key={p.id} type="button" onClick={() => pickVoice(p.id)} aria-pressed={voice === p.id} className={`min-h-11 rounded-none border px-4 text-sm font-medium transition-colors duration-200 ${voice === p.id ? 'border-brown bg-brown text-paper' : 'border-sand bg-card hover:border-brown/50'}`}>
                     {p.name}
                   </button>
                 ))}
-                <button type="button" onClick={() => pickVoice('custom')} aria-pressed={voice === 'custom'} className={`min-h-11 rounded-[2px] border px-4 text-sm font-medium transition-colors duration-200 ${voice === 'custom' ? 'border-brown bg-brown text-paper' : 'border-dashed border-ink/30 bg-card text-ink hover:border-brown/50'}`}>
+                <button type="button" onClick={() => pickVoice('custom')} aria-pressed={voice === 'custom'} className={`min-h-11 rounded-none border px-4 text-sm font-medium transition-colors duration-200 ${voice === 'custom' ? 'border-brown bg-brown text-paper' : 'border-dashed border-ink/30 bg-card text-ink hover:border-brown/50'}`}>
                   ＋ Your own bio
                 </button>
               </div>
@@ -399,11 +399,11 @@ export function Workbench({ presets, samples, siteKey }: Props) {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="mr-1 text-sm text-muted">Framing</span>
                 {([['tight', 'Tight'], ['standard', 'Standard'], ['airy', 'Airy']] as const).map(([id, label]) => (
-                  <button key={id} type="button" onClick={() => setFraming(id)} aria-pressed={framing === id} className={`min-h-11 rounded-[2px] border px-3.5 text-sm font-medium transition-colors ${framing === id ? 'border-brown bg-brown text-paper' : 'border-sand bg-card hover:border-brown/50'}`}>
+                  <button key={id} type="button" onClick={() => setFraming(id)} aria-pressed={framing === id} className={`min-h-11 rounded-none border px-3.5 text-sm font-medium transition-colors ${framing === id ? 'border-brown bg-brown text-paper' : 'border-sand bg-card hover:border-brown/50'}`}>
                     {label}
                   </button>
                 ))}
-                <label className="ml-auto inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-[2px] border border-sand bg-card px-3.5 text-sm font-medium">
+                <label className="ml-auto inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-none border border-sand bg-card px-3.5 text-sm font-medium">
                   <input type="checkbox" checked={shadow} onChange={(e) => setShadow(e.target.checked)} className="h-4 w-4 accent-[#7a5a48]" /> Soft shadow
                 </label>
               </div>
@@ -446,11 +446,11 @@ export function Workbench({ presets, samples, siteKey }: Props) {
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="mr-1 text-sm font-medium">Badge</span>
                     {([['', 'None'], ...Object.entries(BADGES)] as [string, string][]).map(([id, label]) => (
-                      <button key={id || 'none'} type="button" onClick={() => setMeta({ ...meta, badge: id as Badge | '' })} aria-pressed={meta.badge === id} className={`min-h-11 rounded-[2px] border px-3.5 text-sm font-medium transition-colors ${meta.badge === id ? 'border-brown bg-brown text-paper' : 'border-sand bg-card hover:border-brown/50'}`}>
+                      <button key={id || 'none'} type="button" onClick={() => setMeta({ ...meta, badge: id as Badge | '' })} aria-pressed={meta.badge === id} className={`min-h-11 rounded-none border px-3.5 text-sm font-medium transition-colors ${meta.badge === id ? 'border-brown bg-brown text-paper' : 'border-sand bg-card hover:border-brown/50'}`}>
                         {label}
                       </button>
                     ))}
-                    <label className="ml-auto inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-[2px] border border-sand bg-card px-3.5 text-sm font-medium">
+                    <label className="ml-auto inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-none border border-sand bg-card px-3.5 text-sm font-medium">
                       <input type="checkbox" checked={meta.featured} onChange={(e) => setMeta({ ...meta, featured: e.target.checked })} className="h-4 w-4 accent-[#7a5a48]" /> Featured
                     </label>
                   </div>
@@ -464,18 +464,18 @@ export function Workbench({ presets, samples, siteKey }: Props) {
             </div>
 
             {atCapacity ? (
-              <div className="rounded-[3px] bg-oat p-4 text-sm">
+              <div className="rounded-none bg-oat p-4 text-sm">
                 <p className="font-semibold">The live demo is resting for today.</p>
                 <p className="mt-1 text-muted">It resets at midnight UTC. Every example in the <a href="#gallery" className="font-semibold text-ink underline">gallery</a> is a real pipeline run.</p>
               </div>
             ) : noRunsLeft ? (
-              <div className="rounded-[3px] bg-oat p-4 text-sm">
+              <div className="rounded-none bg-oat p-4 text-sm">
                 <p className="font-semibold">You’ve used today’s free runs. Thanks for trying it!</p>
                 <p className="mt-1 text-muted">Come back tomorrow, or browse the <a href="#gallery" className="font-semibold text-ink underline">gallery</a>.</p>
               </div>
             ) : (
               <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-                <button type="button" onClick={generate} disabled={!canGenerate} className="group inline-flex min-h-12 items-center gap-2 rounded-[2px] bg-brown px-7 text-[15px] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:-translate-y-px hover:bg-brown-dark hover:shadow-[var(--shadow-lift)] active:scale-[0.97] disabled:translate-y-0 disabled:opacity-40 disabled:shadow-none">
+                <button type="button" onClick={generate} disabled={!canGenerate} className="group inline-flex min-h-12 items-center gap-2 rounded-none bg-brown px-7 text-[15px] font-semibold text-white transition hover:-translate-y-px hover:bg-brown-dark hover:shadow-[var(--shadow-lift)] active:scale-[0.97] disabled:translate-y-0 disabled:opacity-40 disabled:shadow-none">
                   Generate listing                 </button>
                 <p className="text-sm text-muted">
                   {ops.length ? `${ops.length} edit${ops.length > 1 ? 's' : ''} · ` : 'No edits needed? Go ahead · '}
@@ -491,10 +491,10 @@ export function Workbench({ presets, samples, siteKey }: Props) {
       {/* ④ Listing */}
       {(step === 'running' || step === 'done') && (
         <div className="animate-fade-in space-y-6">
-          <div className="grid gap-5 rounded-[3px] border border-sand bg-card p-4 shadow-[var(--shadow-lift)] sm:p-6 md:grid-cols-[1.15fr_1fr]">
+          <div className="grid gap-5 border-t border-sand bg-card p-4 sm:p-6 md:grid-cols-[1.15fr_1fr]">
             <div>
               {(
-                <div className="relative overflow-hidden rounded-[3px] bg-oat">
+                <div className="relative overflow-hidden rounded-none bg-oat">
                   {preview && <img src={preview} alt="Your photo, being processed" className="aspect-square w-full object-contain" />}
                   <div className="pointer-events-none absolute inset-0 overflow-hidden">
                     <div className="animate-shimmer h-1/3 w-full bg-gradient-to-b from-transparent via-white/70 to-transparent" />
@@ -511,12 +511,12 @@ export function Workbench({ presets, samples, siteKey }: Props) {
               </div>
               <StageTimeline stages={stages} running={running} retouch={withRetouch} />
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-oat">
-                <div className="h-full rounded-full bg-gradient-to-r from-sand to-brown transition-[width] duration-500 ease-out" style={{ width: `${step === 'done' ? 100 : (doneCount / stagesFor(withRetouch).length) * 100}%` }} />
+                <div className="h-full rounded-full bg-brown transition-[width] duration-500 ease-out" style={{ width: `${step === 'done' ? 100 : (doneCount / stagesFor(withRetouch).length) * 100}%` }} />
               </div>
               {step === 'running' && elapsed > 15000 && <p className="mt-2 text-xs text-muted">Still working: the copy model can take a little longer on detailed photos.</p>}
               {step === 'done' && doneId && (
                 <div className="mt-auto pt-5">
-                  <p className="font-[family-name:var(--font-display)] text-lg font-semibold">Done. Opening your listing…</p>
+                  <p className="font-semibold">Done. Opening your listing…</p>
                   <a href={`/r/${doneId}?new=1`} className="caption !text-ink mt-1 inline-block underline underline-offset-4">Open it now</a>
                 </div>
               )}
@@ -526,10 +526,10 @@ export function Workbench({ presets, samples, siteKey }: Props) {
       )}
 
       {message && (
-        <div role="alert" className="mt-4 flex flex-wrap items-center gap-3 rounded-[3px] border border-brick/30 bg-brick/5 px-4 py-3 text-sm text-brick">
+        <div role="alert" className="mt-4 flex flex-wrap items-center gap-3 rounded-none border border-brick/30 bg-brick/5 px-4 py-3 text-sm text-brick">
           <span>{message}</span>
           {step === 'prepare' && file && canGenerate && (
-            <button type="button" onClick={generate} className="inline-flex min-h-11 items-center gap-1.5 rounded-[2px] bg-card px-3 font-semibold text-ink">
+            <button type="button" onClick={generate} className="inline-flex min-h-11 items-center gap-1.5 rounded-none bg-card px-3 font-semibold text-ink">
               Try again
             </button>
           )}

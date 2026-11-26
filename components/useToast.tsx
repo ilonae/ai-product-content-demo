@@ -12,7 +12,7 @@ export function useToast() {
     timer.current = setTimeout(() => setText(null), 1700)
   }, [])
   const el = text ? (
-    <div role="status" className="animate-toast fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-[2px] bg-brown px-4 py-2.5 text-sm font-medium text-paper shadow-[var(--shadow-lift)]">
+    <div role="status" className="animate-toast fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-none bg-brown px-4 py-2.5 text-sm font-medium text-paper">
       {text}
     </div>
   ) : null

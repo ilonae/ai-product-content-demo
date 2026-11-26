@@ -263,17 +263,17 @@ export const PhotoEditor = forwardRef<PhotoEditorHandle, Props>(function PhotoEd
       type="button"
       onClick={() => setTool(id)}
       aria-pressed={tool === id}
-      className={`inline-flex min-h-11 items-center gap-2 rounded-[2px] px-3.5 text-sm font-semibold transition-colors duration-200 ${tool === id ? 'bg-brown text-paper' : 'text-ink/80 hover:bg-oat'}`}
+      className={`inline-flex min-h-11 items-center gap-2 rounded-none px-3.5 text-sm font-semibold transition-colors duration-200 ${tool === id ? 'bg-brown text-paper' : 'text-ink/80 hover:bg-oat'}`}
     >
       {label}
-      <kbd className={`rounded-md px-1.5 font-mono text-[10px] ${tool === id ? 'bg-paper/15' : 'bg-oat text-muted'}`}>{key}</kbd>
+      <kbd className={`rounded-none px-1.5 font-mono text-[10px] ${tool === id ? 'bg-paper/15' : 'bg-oat text-muted'}`}>{key}</kbd>
     </button>
   )
-  const iconBtn = 'min-h-11 min-w-11 rounded-[2px] px-3 text-sm font-medium text-ink/80 transition hover:bg-oat disabled:opacity-30'
+  const iconBtn = 'min-h-11 min-w-11 rounded-none px-3 text-sm font-medium text-ink/80 transition hover:bg-oat disabled:opacity-30'
 
   return (
     <div className="animate-editor-in space-y-3">
-      <div className="animate-toolbar-in sticky top-16 z-20 flex flex-wrap items-center gap-1 rounded-[3px] border border-sand bg-card/95 p-1.5 shadow-[var(--shadow-soft)] backdrop-blur">
+      <div className="animate-toolbar-in sticky top-16 z-20 flex flex-wrap items-center gap-1 rounded-none border border-sand bg-card/95 p-1.5 backdrop-blur">
         <div className="flex items-center rounded-full bg-paper p-0.5">
           {toolBtn('erase', 'Erase prop', 'E')}
           {toolBtn('tape', 'Tape', 'T')}
@@ -307,7 +307,7 @@ export const PhotoEditor = forwardRef<PhotoEditorHandle, Props>(function PhotoEd
             onPointerLeave={() => setComparing(false)}
             onKeyDown={(e) => e.key === ' ' && setComparing(true)}
             onKeyUp={() => setComparing(false)}
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-[2px] px-3 text-sm font-semibold text-ink/80 hover:bg-oat"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-none px-3 text-sm font-semibold text-ink/80 hover:bg-oat"
             title="Hold to see the original"
           >
             Hold to compare
@@ -315,7 +315,7 @@ export const PhotoEditor = forwardRef<PhotoEditorHandle, Props>(function PhotoEd
         </span>
       </div>
 
-      <div ref={scrollRef} className="max-h-[70vh] overflow-auto rounded-[3px] border border-sand bg-oat">
+      <div ref={scrollRef} className="max-h-[70vh] overflow-auto rounded-none border border-sand bg-oat">
         <div className="relative" style={{ width: `${zoom * 100}%` }}>
           <canvas
             ref={baseRef}
@@ -335,7 +335,7 @@ export const PhotoEditor = forwardRef<PhotoEditorHandle, Props>(function PhotoEd
               style={{ left: `${(cursor.x / dims.w) * 100}%`, top: `${(cursor.y / dims.h) * 100}%`, width: `${(size / dims.w) * 100}%` }}
             />
           )}
-          {comparing && <span className="absolute left-3 top-3 rounded-[2px] bg-brown/85 px-2.5 py-1 text-xs font-semibold text-paper">Original</span>}
+          {comparing && <span className="absolute left-3 top-3 rounded-none bg-brown/85 px-2.5 py-1 text-xs font-semibold text-paper">Original</span>}
         </div>
       </div>
 

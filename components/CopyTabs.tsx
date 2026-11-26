@@ -40,7 +40,7 @@ export function CopyTabs({ copy }: { copy: ProductCopy }) {
   }
 
   return (
-    <div className="rounded-[3px] border border-sand bg-card shadow-[var(--shadow-soft)]">
+    <div className="border-t border-sand bg-card">
       <div className="flex items-center justify-between gap-2 border-b border-sand px-3 pt-2">
         <div role="tablist" aria-label="Language" className="relative flex">
           {LANGS.map((l) => (
@@ -56,13 +56,13 @@ export function CopyTabs({ copy }: { copy: ProductCopy }) {
           ))}
           <span className="absolute bottom-0 h-0.5 w-[5.25rem] rounded-full bg-brown transition-transform duration-200" style={{ transform: `translateX(${idx * 100}%)` }} />
         </div>
-        <button onClick={copyAll} className="min-h-11 shrink-0 whitespace-nowrap rounded-[2px] px-3 text-sm font-medium text-muted hover:bg-oat hover:text-ink">
+        <button onClick={copyAll} className="min-h-11 shrink-0 whitespace-nowrap rounded-none px-3 text-sm font-medium text-muted hover:bg-oat hover:text-ink">
           Copy all
         </button>
       </div>
 
       <div key={lang} role="tabpanel" className="animate-fade-in space-y-4 p-5">
-        <h3 className="text-xl font-bold tracking-tight">{copy.name}</h3>
+        <h3 className="text-xl font-semibold tracking-tight">{copy.name}</h3>
         <p className="whitespace-pre-line leading-relaxed text-ink/85">{copy.descriptions[lang]}</p>
 
         {bullets.length > 0 && (
@@ -77,8 +77,8 @@ export function CopyTabs({ copy }: { copy: ProductCopy }) {
         )}
 
         {seo && (
-          <div className="space-y-2 rounded-[3px] border border-sand bg-paper p-4">
-            <p className="font-mono text-[11px] uppercase tracking-widest text-muted">Search snippet</p>
+          <div className="space-y-2 bg-paper p-4">
+            <p className="caption">Search snippet</p>
             <div>
               <div className="flex items-baseline justify-between gap-3">
                 <p className="text-[15px] font-semibold text-ink">{seo.title}</p>
@@ -95,12 +95,12 @@ export function CopyTabs({ copy }: { copy: ProductCopy }) {
         {copy.tags && copy.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {copy.tags.map((t) => (
-              <span key={t} className="rounded-[2px] bg-apricot/70 px-2.5 py-1 text-xs font-medium text-ink/80">#{t}</span>
+              <span key={t} className="rounded-none bg-apricot/70 px-2.5 py-1 text-xs font-medium text-ink/80">#{t}</span>
             ))}
           </div>
         )}
 
-        <p className="rounded-[3px] bg-oat px-3 py-2 text-xs text-muted">
+        <p className="rounded-none bg-oat px-3 py-2 text-xs text-muted">
           <span className="font-mono font-medium text-ink">alt</span> · {copy.altText}
         </p>
       </div>

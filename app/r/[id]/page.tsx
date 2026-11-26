@@ -40,40 +40,40 @@ export default async function ResultPage({ params, searchParams }: Props) {
         <div className="animate-fade-in flex flex-wrap items-center justify-between gap-4 border border-sage/50 bg-sage/10 px-5 py-4">
           <div>
             <p className="caption !text-sage">Fresh from the light table</p>
-            <p className="mt-1 font-[family-name:var(--font-display)] text-lg font-semibold">Your listing is ready.</p>
+            <p className="mt-1 font-semibold">Your listing is ready.</p>
             <p className="text-sm text-muted">Share this page, download the image or the CSV for your shop, or publish it as a draft.</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <a href={run.outputUrl} download={`${run.id}.png`} className="inline-flex min-h-11 items-center rounded-[2px] border border-sand bg-card px-4 text-sm font-semibold hover:border-brown/50">Download image</a>
-            <a href={`/api/runs/${run.id}/export`} className="inline-flex min-h-11 items-center rounded-[2px] border border-sand bg-card px-4 text-sm font-semibold hover:border-brown/50">Download CSV</a>
+            <a href={run.outputUrl} download={`${run.id}.png`} className="inline-flex min-h-11 items-center rounded-none border border-sand bg-card px-4 text-sm font-semibold hover:border-brown/50">Download image</a>
+            <a href={`/api/runs/${run.id}/export`} className="inline-flex min-h-11 items-center rounded-none border border-sand bg-card px-4 text-sm font-semibold hover:border-brown/50">Download CSV</a>
           </div>
         </div>
       )}
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <a href="/" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink">Back to the demo</a>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{run.copy.name}</h1>
-          <p className="mt-2 flex flex-wrap gap-2 text-sm">
-            <span className="rounded-[2px] bg-apricot px-3 py-1 font-medium">{run.brand.name} voice</span>
-            <span className="rounded-[2px] bg-oat px-3 py-1 font-mono text-muted">{totalS} s end to end</span>
-            <span className="rounded-[2px] bg-oat px-3 py-1 text-muted">{run.source === 'gallery' ? 'Gallery example' : 'Live run'} · {new Date(run.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <h1 className="mt-2 text-[28px] font-semibold leading-tight sm:text-[34px]">{run.copy.name}</h1>
+          <p className="mt-1.5 flex flex-wrap gap-x-2 text-sm text-muted">
+            <span className="text-ink">{run.brand.name} voice</span><span aria-hidden>·</span>
+            <span className="font-mono text-[13px]">{totalS} s end to end</span><span aria-hidden>·</span>
+            <span>{run.source === 'gallery' ? 'Gallery example' : 'Live run'} · {new Date(run.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
           </p>
         </div>
         <div className="flex gap-2">
           <ShareButton id={run.id} />
-          <a href="/#try" className="inline-flex min-h-11 items-center rounded-[2px] bg-brown px-5 text-sm font-semibold text-white shadow-[var(--shadow-soft)] hover:bg-brown-dark">Make another</a>
+          <a href="/#try" className="inline-flex min-h-11 items-center rounded-none bg-brown px-5 text-sm font-semibold text-white hover:bg-brown-dark">Make another</a>
         </div>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1.35fr_1fr]">
         <div className="space-y-6">
-          <div className="rounded-[3px] border border-sand bg-card p-3 shadow-[var(--shadow-lift)]">
+          <div className="border-t border-sand bg-card p-3">
             <BeforeAfter before={run.originalUrl} after={run.outputUrl} alt={run.copy.altText} width={run.width} height={run.height} />
             <p className="px-2 pb-1 pt-3 text-xs text-muted">
               Output {run.width}×{run.height} px on white{run.watermarked ? ' · watermarked demo output' : ''} · drag to compare
             </p>
           </div>
-          <div className="rounded-[3px] border border-sand bg-card p-5 shadow-[var(--shadow-soft)]">
+          <div className="border-t border-sand bg-card p-5">
             <h2 className="mb-2 font-semibold">How it was made</h2>
             <StageTimeline stages={run.stages} variant="waterfall" />
           </div>
