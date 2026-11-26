@@ -19,4 +19,3 @@ Also under the Unsplash License, processed by the pipeline (`public/gallery/`):
 | Shell armchair | Dillon Mangum | https://unsplash.com/photos/9489sFfgk4c |
 | Bar stool | Rei Yamazaki | https://unsplash.com/photos/i5XfpsUjzjA |
 | Over-ear headphones | YEAR ONE | https://unsplash.com/photos/xuioQR0qrHY |
-| Vase, sneaker, bottle | see above | |

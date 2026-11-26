@@ -83,7 +83,8 @@ function Sheet({ n, id, label, title, lede, tone = 'paper', children }: { n: str
 
 export default async function Home() {
   const samples = await availableSamples()
-  const hero = GALLERY.find((r) => r.meta.productType?.includes('vase')) ?? GALLERY[0]
+  // Hero: the hardest case (white product on a light backdrop, thin wire struts).
+  const hero = GALLERY.find((r) => r.meta.productType?.includes('armchair')) ?? GALLERY[0]
   return (
     <main>
       <Sheet n="00" label="Intro">
