@@ -28,16 +28,22 @@ export function getConfig() {
     maxUploadBytes: 4 * 1024 * 1024,
     maxEdgePx: 2048,
     maxRunsPerIpPerDay: num('MAX_RUNS_PER_IP_PER_DAY', 2),
-    dailySpendCapUsd: num('DAILY_SPEND_CAP_USD', 1),
+    /** Hard daily ceiling for all visitors together; the live path closes once it's reached. */
+    dailySpendCapUsd: num('DAILY_SPEND_CAP_USD', 0.15),
     /**
      * Estimated cost per paid stage, reserved against the daily cap BEFORE a run starts,
-     * so concurrent runs can never overshoot it.
-     * TODO: set these from your providers' current pricing.
+     * so concurrent runs can never overshoot it. Prices as of Nov 2026:
+     * - background: Stability Remove Background, 5 credits ($0.05); only charged when the
+     *   Stability fallback runs, the self-hosted rembg service costs nothing per call.
+     * - enhance: Stability Fast Upscaler, 2 credits ($0.02).
+     * - copy: one gpt-6.2-sol call. Measured on the gallery products: about 1,040 input and
+     *   880 output tokens ($2 / $10 per 1M) ≈ $0.011, rounded up. A revision is a second call.
+     * - retouch: Stability Inpaint, 5 credits ($0.05).
      */
     estCostUsd: {
-      background: num('EST_COST_BACKGROUND_USD', 0.02),
-      enhance: num('EST_COST_ENHANCE_USD', 0.05),
-      copy: num('EST_COST_COPY_USD', 0.05),
+      background: num('EST_COST_BACKGROUND_USD', 0.05),
+      enhance: num('EST_COST_ENHANCE_USD', 0.02),
+      copy: num('EST_COST_COPY_USD', 0.012),
       retouch: num('EST_COST_RETOUCH_USD', 0.05),
     },
     copyProvider,

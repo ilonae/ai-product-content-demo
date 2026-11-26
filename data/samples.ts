@@ -21,8 +21,8 @@ export const SAMPLES: Sample[] = [
     meta: { productType: 'ceramic vase', category: 'Home & Living', material: 'glazed stoneware', sku: 'NH-VA-024', price: 49, compareAtPrice: 59, badge: 'sale', featured: true },
   },
   {
-    id: 'sneaker', label: 'Sneaker', emoji: '👟', src: '/samples/sneaker.jpg', brand: 'trailmark', kind: 'studio',
-    meta: { productType: 'running shoe', category: 'Fashion & Shoes', sku: 'TM-RS-118', price: 129, badge: 'new' },
+    id: 'speaker', label: 'Speaker', emoji: '🔊', src: '/samples/speaker.jpg', brand: 'trailmark', kind: 'studio',
+    meta: { productType: 'portable speaker', category: 'Outdoor & Sports', sku: 'TM-SP-210', price: 79, badge: 'new' },
   },
   {
     id: 'bottle', label: 'Bottle', emoji: '🧴', src: '/samples/bottle.jpg', brand: 'trailmark', kind: 'studio',

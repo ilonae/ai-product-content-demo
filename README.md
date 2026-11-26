@@ -10,7 +10,7 @@ This is a portfolio-safe rebuild of a tool I built and ran in production for an 
 
 The production tool ran on the shop owner's machine with their own API keys. A public demo can't do that, and it can't expose the owner's keys to the internet either. So this demo is a **hybrid**:
 
-- **Gallery**: real cached pipeline runs, permalinked and served as static files. Zero marginal cost, always on.
+- **Gallery**: real cached pipeline runs, permalinked and served as static files. Zero marginal cost, always on. It shows hard cases on purpose: a white product on a light backdrop, open gaps between legs and rungs, and a dark product.
 - **Live path**: a limited "try it yourself" flow behind guardrails:
   - Cloudflare **Turnstile** bot check on submit.
   - Per-IP **rate limit** via Upstash Redis (default: 2 runs per IP per day). It only ever stores a salted hash of the IP, and it trusts Cloudflare's `cf-connecting-ip` only when told the origin sits behind Cloudflare (`TRUST_CLOUDFLARE=1`), since that header can otherwise be spoofed.
@@ -64,7 +64,7 @@ Then an optional editor (`components/PhotoEditor.tsx`) retouches the photo befor
 | Tape (T) | Marks tape, pins or small marks. The browser sends them as a PNG mask, and the server repaints them in an extra **retouch** stage: Stability AI inpainting (`lib/providers/retouch.ts`) rebuilds texture and edges, and only the masked area is taken over. Without a key, or if the AI call fails, a free local fill takes over (`lib/editing.ts`). That fill is meant for marks on the product surface, not across its edge. The mask may cover at most 25 % of the photo, and its cost is reserved against the daily cap. |
 | Pick colour (I) | Sets the eraser colour from the backdrop. |
 
-The editor also has undo/redo (⌘Z / ⇧⌘Z), brush size ([ ]), zoom (⌘+scroll) and hold-to-compare. "Refine & rerun" keeps the edits.
+The editor also has undo/redo (⌘Z / ⇧⌘Z), brush size ([ ]), zoom (⌘+scroll) and hold-to-compare.
 
 ### Product details and output
 
@@ -146,9 +146,9 @@ With `PIPELINE_MOCK=1` and no keys, everything runs locally: a naive cut-out, te
 
 ## Cost controls (read before going live)
 
-- `DAILY_SPEND_CAP_USD`: hard ceiling. The live path disables itself for the rest of the UTC day when it's hit.
+- `DAILY_SPEND_CAP_USD`: hard ceiling for all visitors together, default **$0.15 a day**. The live path closes for the rest of the UTC day when the next run's worst case would exceed it; the gallery stays open.
 - `MAX_RUNS_PER_IP_PER_DAY`: default 2.
-- `EST_COST_*_USD`: per-stage estimates reserved against the cap. **Set them from your providers' current pricing.**
+- `EST_COST_*_USD`: per-stage estimates reserved against the cap. The defaults use November 2026 prices: Stability charges $0.05 for a background removal or an inpaint and $0.02 for a fast upscale; a copy call on gpt-6.2-sol measured about 1,040 input and 880 output tokens, about $0.011. A typical run (self-hosted rembg, one copy call) costs about a cent. Check them when prices change.
 - Uploads are capped at 4 MB (Vercel's body limit is 4.5 MB). The vision model gets a 1024 px JPEG, not the full image.
 - The gallery is always free: it serves cached outputs and makes no provider calls.
 - **Retention:** live uploads are public via their permalink. Schedule the 30-day purge in `supabase/schema.sql` before sharing the link widely.
@@ -161,7 +161,7 @@ With `PIPELINE_MOCK=1` and no keys, everything runs locally: a naive cut-out, te
 npm run typecheck && npm test && npm run build
 ```
 
-There are 44 tests covering the image stages, the pipeline (stage order, live reporting, failure path), the studio-quality gate, the retouching tools (AI inpainting with a local fallback, only the masked area changes, grow into shadow), the guardrails (rate limit, spend cap and refunds, trusted client IP, salt, pixel limit), the prompt, and every connector (Shopify draft creation and user errors, webhook signature, CSV escaping and formula injection). CI runs the same on every push (`.github/workflows/ci.yml`).
+There are 52 tests covering the image stages, the pipeline (stage order, live reporting, failure path), the studio-quality gate, the retouching tools (AI inpainting with a local fallback, only the masked area changes, grow into shadow), the guardrails (rate limit, spend cap and refunds, the $0.15 daily cap across all visitors, trusted client IP, salt, pixel limit), the prompt and the copy checker, publishing (demo store drafts, image uploads to Shopify and WordPress, the Shopify token exchange), and every connector (Shopify draft creation and user errors, webhook signature, CSV escaping and formula injection). CI runs the same on every push (`.github/workflows/ci.yml`).
 
 ## What to customise
 
@@ -169,7 +169,7 @@ There are 44 tests covering the image stages, the pipeline (stage order, live re
 - `lib/copy/prompt.ts`: copy rules and tone.
 - `lib/pipeline.ts`: stages; every provider is injectable.
 - `lib/connectors/`: add a CMS.
-- `components/TryItForm.tsx`: the upload + Turnstile UI.
-- Sample products: **keep them SFW and generic** (mug, sneaker, bottle).
+- `components/Workbench.tsx`: the upload, studio check, editor and live progress (with the Turnstile check).
+- Sample products: **keep them SFW and generic, with no visible brand logos** (vase, speaker, bottle).
 
 `TODO:` markers flag the spots that need your provider keys or a decision.

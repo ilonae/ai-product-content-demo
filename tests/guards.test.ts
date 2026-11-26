@@ -33,6 +33,28 @@ describe('guards', () => {
     expect((await admitLiveRun(ip, c, conf)).ok).toBe(true)
   })
 
+  it('keeps all visitors together under the default $0.15 a day, then blocks', async () => {
+    const c = new MemoryCounter()
+    const conf = { ...getConfig(), maxRunsPerIpPerDay: 2 } // default cap and real-price estimates
+    expect(conf.dailySpendCapUsd).toBe(0.15)
+    let runs = 0
+    for (let i = 0; i < 50; i++) {
+      const ip = hashIp(`198.51.100.${i}`)
+      const a = await admitLiveRun(ip, c, conf)
+      if (!a.ok) {
+        expect(a.reason).toBe('capacity')
+        break
+      }
+      runs++
+      // worst case: every reserved cent is actually spent
+      await settleLiveRun(ip, c, a.reservedUsd, { actualUsd: a.reservedUsd })
+    }
+    const { spentUsd, live } = await capacity(c, conf)
+    expect(runs).toBeGreaterThan(0)
+    expect(spentUsd).toBeLessThanOrEqual(0.15 + 1e-9)
+    expect(live).toBe(false)
+  })
+
   it('never exposes the raw IP', () => {
     expect(hashIp('203.0.113.9')).not.toContain('203')
     expect(hashIp('203.0.113.9')).toHaveLength(32)
