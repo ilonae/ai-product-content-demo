@@ -23,6 +23,7 @@ export function Gallery({ runs }: { runs: Run[] }) {
             <div className="p-4">
               <p className="font-semibold group-hover:text-ink">{run.copy.name}</p>
               <p className="mt-0.5 text-sm text-muted">{run.brand.name} voice · {(run.stages.reduce((t, s) => t + s.ms, 0) / 1000).toFixed(1)} s</p>
+              {run.showcase && <p className="mt-2 border-t border-sand pt-2 text-sm text-ink/80"><span className="caption mr-1.5">Proves</span>{run.showcase}</p>}
             </div>
           </a>
         </Reveal>

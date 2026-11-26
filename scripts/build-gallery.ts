@@ -41,20 +41,24 @@ const staticStore: Store = {
 }
 
 async function main() {
-  const files = (await readdir(path.join(root, 'samples'))).filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+  // Optional names on the command line build only those samples: npm run gallery:build -- stool armchair
+  const only = process.argv.slice(2)
+  const files = (await readdir(path.join(root, 'samples')))
+    .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+    .filter((f) => !only.length || only.includes(f.replace(/\.\w+$/, '')))
   if (!files.length) throw new Error('No images in samples/. See samples/README.md.')
   const existing = JSON.parse(await readFile(galleryJson, 'utf8')) as Run[]
   const deps = defaultDeps(getConfig(), staticStore)
 
   for (const file of files) {
     const sidecar = path.join(root, 'samples', file.replace(/\.\w+$/, '.json'))
-    const opts = existsSync(sidecar) ? (JSON.parse(await readFile(sidecar, 'utf8')) as { brand?: string; meta?: ProductMeta }) : {}
+    const opts = existsSync(sidecar) ? (JSON.parse(await readFile(sidecar, 'utf8')) as { brand?: string; meta?: ProductMeta; showcase?: string }) : {}
     const run = await runPipeline(
       { bytes: await readFile(path.join(root, 'samples', file)), meta: opts.meta ?? {}, brand: resolveBrand(opts.brand), source: 'gallery' },
       deps,
       (s) => console.log(`  ${file}  ${s.name.padEnd(10)} ${s.status}  ${s.ms} ms  ${s.provider ?? ''} ${s.model ?? ''}`),
     )
-    existing.push(run)
+    existing.push(opts.showcase ? { ...run, showcase: opts.showcase } : run)
     console.log(`✓ ${file} → /r/${run.id}`)
   }
   await writeFile(galleryJson, `${JSON.stringify(existing, null, 2)}\n`)

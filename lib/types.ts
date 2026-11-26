@@ -64,6 +64,8 @@ export interface Run {
   stages: StageRecord[]
   estCostUsd: number
   watermarked: boolean
+  /** Gallery only: what this example proves about the method. */
+  showcase?: string
   /** Copy rules the model still broke after its revision (empty = all met; absent on older runs). */
   copyIssues?: string[]
 }

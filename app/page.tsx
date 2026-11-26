@@ -20,7 +20,8 @@ const STEPS = [
 const WRITES = ['Product name', 'Description', 'Key features', 'SEO title', 'Meta description', 'Tags', 'Alt text']
 
 const CMS = [
-  { name: 'Shopify', how: 'Admin GraphQL · draft product + image' },
+  { name: 'Demo store', how: 'Built-in sandbox shop, open to everyone' },
+  { name: 'Shopify', how: 'Admin GraphQL · draft + uploaded image · verified' },
   { name: 'WooCommerce', how: 'REST v3 · draft product' },
   { name: 'Any CMS', how: 'Signed webhook (HMAC-SHA256)' },
   { name: 'CSV import', how: 'Works with most shop systems' },
@@ -163,9 +164,10 @@ export default async function Home() {
               </tbody>
             </table>
             <p className="mt-6 text-sm leading-relaxed text-paper/65">
-              Shopify and WooCommerce connectors call the stores’ admin APIs; the image URL must be publicly reachable, so
-              publishing works from a deployed instance, not from localhost. For any other CMS, a small endpoint receives the
-              signed JSON and maps it to its content model.
+              Shopify and WooCommerce receive the image as a file upload, so publishing works even from a laptop. Shopify is
+              verified end to end on a real development store. Every visitor can try the flow in the built-in{' '}
+              <a href="/store" className="text-paper underline underline-offset-4">demo store</a>; real stores are owner-only.
+              Any other CMS gets signed JSON with the image included.
             </p>
           </div>
           <div className="border border-paper/20 bg-brown-dark">

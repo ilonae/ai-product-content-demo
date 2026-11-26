@@ -1,114 +1,453 @@
 [
   {
-    "id": "wEXSQSkD3a_U",
-    "createdAt": "2026-11-25T17:56:59.982Z",
+    "id": "4fulIFBkuCUc",
+    "createdAt": "2026-11-26T13:25:41.944Z",
     "source": "gallery",
     "brand": {
-      "id": "trailmark",
-      "name": "Trailmark"
+      "id": "nordhaus",
+      "name": "Nordhaus"
     },
     "meta": {
-      "productType": "insulated bottle",
-      "category": "Outdoor & Sports",
-      "material": "stainless steel",
-      "sku": "TM-BT-750",
-      "price": 34.9,
-      "badge": "bestseller",
-      "notes": "750 ml · keeps drinks cold for 24 h"
+      "productType": "shell armchair",
+      "category": "Home & Living",
+      "material": "moulded shell, oak legs, steel wire base",
+      "sku": "NH-CH-031",
+      "price": 289,
+      "badge": "new",
+      "notes": "seat height 45 cm \u00b7 width 63 cm"
     },
-    "originalUrl": "/gallery/wEXSQSkD3a_U/original.png",
-    "outputUrl": "/gallery/wEXSQSkD3a_U/output.png",
-    "width": 1424,
-    "height": 1424,
+    "originalUrl": "/gallery/4fulIFBkuCUc/original.png",
+    "outputUrl": "/gallery/4fulIFBkuCUc/output.png",
+    "width": 729,
+    "height": 729,
     "copy": {
-      "name": "24 h Insulated Bottle",
+      "name": "White Shell Armchair with Oak Legs",
       "descriptions": {
-        "de": "Die Isolierung hält Getränke 24 Stunden lang kalt. Die grüne Trinkflasche aus Edelstahl fasst 750 ml. Sie hat eine matte Oberfläche, abgerundete Schultern und einen farblich passenden Deckel.\n\nMorgens einfüllen, einpacken, losgehen. Wenn du am Nachmittag zur Flasche greifst, ist der Schluck noch kalt. Die Sonne darf sich um den Anstieg kümmern, nicht um dein Getränk.",
-        "en": "Insulated to keep drinks cold for 24 hours, this stainless steel bottle holds 750 ml. It has a matte green finish, rounded shoulders and a matching cap.\n\nFill it before you set off. When you stop for a drink halfway up the afternoon climb, it’ll still be cold. One less thing warming up in the sun.",
-        "es": "El aislamiento de esta botella de acero inoxidable mantiene las bebidas frías durante 24 horas. Tiene una capacidad de 750 ml, un acabado verde mate y un tapón del mismo color.\n\nLlénala antes de salir y guárdala en la mochila. Cuando pares a beber en plena subida, el agua seguirá fría. Bastante calor llevas ya encima."
+        "de": "Die geformte weisse Schale geht vom Sitz in die R\u00fcckenlehne und die Armlehnen \u00fcber. Darunter stehen Beine aus Eiche, verbunden durch ein Gestell aus Stahldraht. Die Sitzh\u00f6he betr\u00e4gt 45 cm, die Breite 63 cm.\n\nAm Tisch st\u00fctzt die Schale die Arme, wenn man sich nach dem Essen noch eine Weile unterh\u00e4lt. Auch neben dem Fenster ist der Sessel ein Platz zum Lesen.",
+        "en": "The moulded white shell curves from the seat into the back and arms. Oak legs sit beneath it, linked by a steel wire base. The armchair is 63 cm wide, with a seat height of 45 cm.\n\nRest your arms while the conversation carries on after dinner. By the window, it\u2019s a place to sit with a book.",
+        "es": "La carcasa blanca est\u00e1 moldeada en una sola pieza que re\u00fane el asiento, el respaldo y los reposabrazos. Las patas de roble se unen con una estructura de alambre de acero. El sill\u00f3n mide 63 cm de ancho y el asiento queda a 45 cm del suelo.\n\nEn la sobremesa, los reposabrazos invitan a quedarse un rato m\u00e1s. Junto a la ventana, el sill\u00f3n encuentra su sitio como asiento de lectura."
       },
       "bullets": {
         "de": [
-          "750 ml Fassungsvermögen: genug für mehrere Trinkpausen",
-          "24 Stunden Kühlung: auch bei der letzten Rast noch ein kalter Schluck",
-          "Matte Oberfläche: glänzt nicht in der Sonne"
+          "Durchgehende Schale: keine Fugen zwischen Sitz und Lehnen",
+          "Seitliche Armlehnen: geben den Unterarmen Halt",
+          "Offenes Drahtgestell: l\u00e4sst den Boden unter dem Sitz sichtbar"
         ],
         "en": [
-          "750 ml capacity: enough for several drink stops",
-          "24 hours of cold: a chilled sip even at the last stop",
-          "Matte finish: no glossy shine in the sun"
+          "One-piece shell: no seams between the seat, back and arms",
+          "Raised sides: give your forearms somewhere to rest",
+          "Open wire base: keeps the floor beneath the seat in view"
         ],
         "es": [
-          "Capacidad de 750 ml: da para varias paradas",
-          "24 horas de frío: un trago fresco incluso en la última parada",
-          "Acabado mate: sin brillos bajo el sol"
+          "Carcasa de una pieza: sin juntas entre el asiento y el respaldo",
+          "Laterales elevados: sirven de apoyo a los antebrazos",
+          "Estructura abierta de acero: deja a la vista el suelo bajo el asiento"
         ]
       },
       "seo": {
         "de": {
-          "title": "Isolierflasche aus Edelstahl, 750 ml | Trailmark",
-          "description": "Grüne Isolierflasche aus Edelstahl mit 750 ml Volumen. Hält Getränke 24 Stunden kalt, damit auch der letzte Schluck noch kühl ist."
+          "title": "Schalensessel mit Eichenbeinen | Nordhaus",
+          "description": "Weisser Schalensessel mit Eichenbeinen und 45 cm Sitzh\u00f6he. Die seitlich hochgezogene Schale st\u00fctzt die Arme beim Lesen."
         },
         "en": {
-          "title": "Insulated Bottle, 750 ml Stainless Steel | Trailmark",
-          "description": "A green stainless steel insulated bottle with a 750 ml capacity. It keeps drinks cold for 24 hours, so your last sip is still cold."
+          "title": "Shell Armchair with Oak Legs | Nordhaus",
+          "description": "White shell armchair with oak legs and a 45 cm seat height. The curved sides give your arms a place to rest while you read."
         },
         "es": {
-          "title": "Botella térmica de acero, 750 ml | Trailmark",
-          "description": "Botella térmica verde de acero inoxidable con 750 ml de capacidad. Mantiene la bebida fría durante 24 horas, hasta el último trago."
+          "title": "Sill\u00f3n de carcasa con patas de roble | Nordhaus",
+          "description": "Sill\u00f3n de carcasa blanca con patas de roble y asiento a 45 cm del suelo. Los laterales curvos permiten apoyar los brazos al leer."
         }
       },
       "tags": [
-        "insulated bottle",
-        "stainless steel",
-        "green",
-        "hydration",
-        "hiking",
-        "outdoors"
+        "shell armchair",
+        "oak",
+        "steel wire",
+        "white",
+        "dining room",
+        "reading"
       ],
-      "altText": "A matte green bottle with rounded shoulders and a matching cap stands against a white background."
+      "altText": "Front view of a white shell armchair with curved arms, splayed oak legs and black steel wires crossing beneath the seat."
     },
     "stages": [
       {
         "name": "ingest",
         "status": "ok",
-        "ms": 53,
+        "ms": 37,
         "provider": "sharp",
-        "note": "jpeg → 1200×1800 PNG"
+        "note": "jpeg \u2192 1600\u00d7763 PNG"
       },
       {
         "name": "background",
         "status": "ok",
-        "ms": 2968,
+        "ms": 1702,
         "provider": "rembg",
         "model": "isnet-general-use + smoothing"
       },
       {
         "name": "compose",
         "status": "ok",
-        "ms": 182,
+        "ms": 65,
         "provider": "sharp",
-        "note": "product luminance 0.39 · 1424×1424 px, standard framing, soft shadow"
+        "note": "product luminance 0.87 \u00b7 729\u00d7729 px, standard framing, soft shadow"
       },
       {
         "name": "copy",
         "status": "ok",
-        "ms": 15104,
+        "ms": 23106,
         "provider": "openai",
         "model": "gpt-6.2-sol",
-        "note": "brand: Trailmark · all rules met"
+        "note": "brand: Nordhaus \u00b7 all rules met"
       },
       {
         "name": "persist",
         "status": "ok",
-        "ms": 2,
+        "ms": 1,
         "provider": "static",
-        "note": "/r/wEXSQSkD3a_U"
+        "note": "/r/4fulIFBkuCUc"
       }
     ],
     "estCostUsd": 0.05,
     "watermarked": false,
-    "copyIssues": []
+    "copyIssues": [],
+    "showcase": "White on a light backdrop (low contrast), plus thin wire struts between the legs."
+  },
+  {
+    "id": "BSMQxc-v4DHU",
+    "createdAt": "2026-11-26T13:26:20.732Z",
+    "source": "gallery",
+    "brand": {
+      "id": "nordhaus",
+      "name": "Nordhaus"
+    },
+    "meta": {
+      "productType": "bar stool",
+      "category": "Home & Living",
+      "material": "beech wood",
+      "sku": "NH-ST-075",
+      "price": 119,
+      "compareAtPrice": 139,
+      "badge": "sale",
+      "notes": "seat height 75 cm \u00b7 seat \u00d8 30 cm"
+    },
+    "originalUrl": "/gallery/BSMQxc-v4DHU/original.png",
+    "outputUrl": "/gallery/BSMQxc-v4DHU/output.png",
+    "width": 874,
+    "height": 874,
+    "copy": {
+      "name": "Round Beech Bar Stool",
+      "descriptions": {
+        "de": "Buchenholz mit sichtbarer Maserung. Die runde Sitzfl\u00e4che hat einen Durchmesser von 30 cm. Vier leicht ausgestellte Beine tragen den Sitz auf 75 cm H\u00f6he. Die Querstreben sitzen auf zwei Ebenen.\n\nAn der K\u00fcchentheke ist der Hocker schnell herangezogen. F\u00fcr den ersten Kaffee oder ein Gespr\u00e4ch beim Kochen. Auf einer der unteren Streben finden die F\u00fc\u00dfe Halt.",
+        "en": "Beech wood with visible grain. The round seat is 30 cm in diameter and sits 75 cm from the floor. Four legs angle gently outwards, with crossbars at two levels.\n\nPull it up to the kitchen counter for a morning coffee or to keep someone company while they cook. The lower crossbars give your feet somewhere to rest.",
+        "es": "Madera de haya con la veta a la vista. El asiento redondo mide 30 cm de di\u00e1metro y queda a 75 cm del suelo. Las cuatro patas se abren ligeramente hacia fuera y llevan travesa\u00f1os a dos alturas.\n\nAc\u00e9rcalo a la barra para tomar el primer caf\u00e9 o charlar con quien cocina. Los travesa\u00f1os de abajo sirven de apoyo para los pies."
+      },
+      "bullets": {
+        "de": [
+          "Sitzh\u00f6he 75 cm: l\u00e4sst sich mit der H\u00f6he der Theke abgleichen",
+          "Sitz ohne Lehne: von jeder Seite zug\u00e4nglich",
+          "Abgerundete Sitzkante: keine scharfe Kante unter den Oberschenkeln"
+        ],
+        "en": [
+          "75 cm seat height: easy to check against your counter",
+          "Backless seat: sit down from any side",
+          "Rounded seat edge: no sharp edge against your thighs"
+        ],
+        "es": [
+          "Asiento a 75 cm: puedes comprobar si encaja con tu barra",
+          "Asiento sin respaldo: puedes sentarte por cualquier lado",
+          "Borde redondeado: no se clava en los muslos"
+        ]
+      },
+      "seo": {
+        "de": {
+          "title": "Barhocker aus Buche, 75 cm | Nordhaus",
+          "description": "Barhocker aus Buchenholz mit 75 cm Sitzh\u00f6he und runder Sitzfl\u00e4che. Auf den unteren Streben k\u00f6nnen die F\u00fc\u00dfe beim Sitzen ruhen."
+        },
+        "en": {
+          "title": "Bar Stool in Beech, 75 cm | Nordhaus",
+          "description": "A beech bar stool with a round seat set 75 cm from the floor. Rest your feet on the lower crossbars as you sit at the counter."
+        },
+        "es": {
+          "title": "Taburete de bar de haya, 75 cm | Nordhaus",
+          "description": "Taburete de bar de haya con asiento redondo a 75 cm del suelo. Apoya los pies en los travesa\u00f1os inferiores al sentarte a la barra."
+        }
+      },
+      "tags": [
+        "bar stool",
+        "beech wood",
+        "warm brown",
+        "round seat",
+        "kitchen",
+        "kitchen counter"
+      ],
+      "altText": "A warm brown beech bar stool with a round seat, four slightly splayed legs and crossbars at two levels stands against a white background."
+    },
+    "stages": [
+      {
+        "name": "ingest",
+        "status": "ok",
+        "ms": 178,
+        "provider": "sharp",
+        "note": "jpeg \u2192 1152\u00d72048 PNG"
+      },
+      {
+        "name": "background",
+        "status": "ok",
+        "ms": 1605,
+        "provider": "rembg",
+        "model": "isnet-general-use + smoothing"
+      },
+      {
+        "name": "compose",
+        "status": "ok",
+        "ms": 90,
+        "provider": "sharp",
+        "note": "product luminance 0.46 \u00b7 874\u00d7874 px, standard framing, soft shadow"
+      },
+      {
+        "name": "copy",
+        "status": "ok",
+        "ms": 17143,
+        "provider": "openai",
+        "model": "gpt-6.2-sol",
+        "note": "brand: Nordhaus \u00b7 all rules met"
+      },
+      {
+        "name": "persist",
+        "status": "ok",
+        "ms": 3,
+        "provider": "static",
+        "note": "/r/BSMQxc-v4DHU"
+      }
+    ],
+    "estCostUsd": 0.05,
+    "watermarked": false,
+    "copyIssues": [],
+    "showcase": "Every gap between rungs and legs removed; tall product framed on a square."
+  },
+  {
+    "id": "tovrKF0SLZea",
+    "createdAt": "2026-11-26T13:26:01.711Z",
+    "source": "gallery",
+    "brand": {
+      "id": "trailmark",
+      "name": "Trailmark"
+    },
+    "meta": {
+      "productType": "over-ear headphones",
+      "category": "Electronics",
+      "material": "padded ear cushions",
+      "sku": "TM-HP-210",
+      "price": 149,
+      "notes": "foldable ear cups"
+    },
+    "originalUrl": "/gallery/tovrKF0SLZea/original.png",
+    "outputUrl": "/gallery/tovrKF0SLZea/output.png",
+    "width": 1102,
+    "height": 1102,
+    "copy": {
+      "name": "Foldable Over-Ear Headphones",
+      "descriptions": {
+        "de": "Klappbare Ohrmuscheln machen diesen dunkelblauen Over-Ear-Kopfh\u00f6rer kompakter f\u00fcrs Einpacken. Die gepolsterten Ohrpolster umschlie\u00dfen die Ohren, statt direkt darauf zu sitzen. Auch die Innenseite des Kopfb\u00fcgels ist gepolstert.\n\nWenn du unterwegs mit dem H\u00f6ren fertig bist, klappst du die Muscheln ein und steckst den Kopfh\u00f6rer in den Rucksack. Da ist meistens schon genug drin.",
+        "en": "Foldable ear cups make these dark blue over-ear headphones more compact for packing. The padded cushions sit around your ears rather than on them, and there\u2019s padding on the underside of the headband too.\n\nWhen you\u2019re done listening, fold the cups in before slipping the headphones into your bag. They don\u2019t need the whole top of the pack.",
+        "es": "Las copas plegables hacen que estos auriculares circumaurales de color azul oscuro ocupen menos al guardarlos. Las almohadillas rodean las orejas en vez de apoyarse sobre ellas, y la diadema tambi\u00e9n est\u00e1 acolchada por dentro.\n\nCuando termines de escuchar, pliega las copas antes de meter los auriculares en la mochila. Bastante llena va ya."
+      },
+      "bullets": {
+        "de": [
+          "Klappbare Ohrmuscheln: brauchen weniger Platz im Rucksack",
+          "Gepolsterte Ohrpolster: liegen weich rund ums Ohr an",
+          "Gepolsterter B\u00fcgel: liegt weich am Scheitel auf"
+        ],
+        "en": [
+          "Foldable ear cups: take up less room in your bag",
+          "Padded ear cushions: give your ears a soft surround",
+          "Padded headband: soft where it rests on your head"
+        ],
+        "es": [
+          "Copas plegables: dejan m\u00e1s sitio en la mochila",
+          "Almohadillas acolchadas: ofrecen un apoyo suave alrededor de las orejas",
+          "Diadema acolchada: se apoya con suavidad sobre la cabeza"
+        ]
+      },
+      "seo": {
+        "de": {
+          "title": "Over-Ear-Kopfh\u00f6rer mit Klappmuscheln | Trailmark",
+          "description": "Dunkelblauer Over-Ear-Kopfh\u00f6rer mit gepolsterten Ohrmuscheln. Die Muscheln lassen sich einklappen und brauchen so weniger Platz im Rucksack."
+        },
+        "en": {
+          "title": "Over-Ear Headphones, Foldable Cups | Trailmark",
+          "description": "Dark blue over-ear headphones with padded ear cushions. The cups fold in so the headphones take up less room in your bag."
+        },
+        "es": {
+          "title": "Auriculares circumaurales plegables | Trailmark",
+          "description": "Auriculares circumaurales azul oscuro con almohadillas acolchadas. Las copas se pliegan para ocupar menos sitio en la mochila."
+        }
+      },
+      "tags": [
+        "headphones",
+        "over-ear",
+        "dark blue",
+        "foldable",
+        "padded",
+        "travel"
+      ],
+      "altText": "Dark blue over-ear headphones with a padded headband and thick ear cushions are shown at an angle against a white background."
+    },
+    "stages": [
+      {
+        "name": "ingest",
+        "status": "ok",
+        "ms": 74,
+        "provider": "sharp",
+        "note": "jpeg \u2192 1600\u00d71067 PNG"
+      },
+      {
+        "name": "background",
+        "status": "ok",
+        "ms": 1219,
+        "provider": "rembg",
+        "model": "isnet-general-use + smoothing"
+      },
+      {
+        "name": "compose",
+        "status": "ok",
+        "ms": 156,
+        "provider": "sharp",
+        "note": "product luminance 0.14 \u00b7 1102\u00d71102 px, standard framing, soft shadow"
+      },
+      {
+        "name": "copy",
+        "status": "ok",
+        "ms": 18311,
+        "provider": "openai",
+        "model": "gpt-6.2-sol",
+        "note": "brand: Trailmark \u00b7 all rules met"
+      },
+      {
+        "name": "persist",
+        "status": "ok",
+        "ms": 4,
+        "provider": "static",
+        "note": "/r/tovrKF0SLZea"
+      }
+    ],
+    "estCostUsd": 0.05,
+    "watermarked": false,
+    "copyIssues": [],
+    "showcase": "Dark product (luminance 0.14) detected; the gap inside the headband removed."
+  },
+  {
+    "id": "VmWIdhWyMAlz",
+    "createdAt": "2026-11-25T17:57:36.924Z",
+    "source": "gallery",
+    "brand": {
+      "id": "nordhaus",
+      "name": "Nordhaus"
+    },
+    "meta": {
+      "productType": "ceramic vase",
+      "category": "Home & Living",
+      "material": "glazed stoneware",
+      "sku": "NH-VA-024",
+      "price": 49,
+      "compareAtPrice": 59,
+      "badge": "sale",
+      "featured": true,
+      "notes": "24 cm tall \u00b7 \u00d8 9 cm \u00b7 watertight"
+    },
+    "originalUrl": "/gallery/VmWIdhWyMAlz/original.png",
+    "outputUrl": "/gallery/VmWIdhWyMAlz/output.png",
+    "width": 612,
+    "height": 612,
+    "copy": {
+      "name": "Deep Blue Stoneware Vase",
+      "descriptions": {
+        "de": "Glasiertes Steinzeug in tiefem Blau. Der bauchige K\u00f6rper l\u00e4uft in einen langen, schmalen Hals aus, dessen Rand sich leicht nach au\u00dfen \u00f6ffnet. Die Vase ist 24 cm hoch, hat einen Durchmesser von 9 cm und ist wasserdicht.\n\nAuf dem Tisch gen\u00fcgt ein einzelner Stiel. Ist die Bl\u00fcte verbl\u00fcht, kann die Vase einfach stehen bleiben. Je nach Licht wirkt das Blau mal heller, mal dunkler.",
+        "en": "Glazed stoneware in deep blue, with a rounded body that draws up into a long, narrow neck. The rim opens out slightly. The vase is 24 cm tall, measures 9 cm in diameter and is watertight.\n\nOn the table, one stem is enough. Once the flower has faded, leave the vase where it is. The blue shifts as the light moves across it.",
+        "es": "Gres esmaltado en azul profundo. Del cuerpo redondeado nace un cuello largo y estrecho que se abre ligeramente en el borde. El jarr\u00f3n mide 24 cm de alto y 9 cm de di\u00e1metro y no deja pasar el agua.\n\nEn la mesa basta con una sola flor. Cuando se marchite, el jarr\u00f3n puede quedarse donde est\u00e1. El azul cambia de tono seg\u00fan le da la luz."
+      },
+      "bullets": {
+        "de": [
+          "Schmaler Hals: gibt einzelnen Stielen Halt",
+          "Wasserdicht: auch f\u00fcr frische Blumen",
+          "9 cm Durchmesser: braucht wenig Platz auf dem Regal"
+        ],
+        "en": [
+          "Narrow neck: keeps single stems upright",
+          "Watertight body: holds water for fresh flowers",
+          "9 cm diameter: leaves room on a shelf"
+        ],
+        "es": [
+          "Cuello estrecho: mantiene erguido un solo tallo",
+          "Cuerpo estanco: permite poner flores frescas en agua",
+          "9 cm de di\u00e1metro: ocupa poco espacio en la estanter\u00eda"
+        ]
+      },
+      "seo": {
+        "de": {
+          "title": "Steinzeugvase in tiefem Blau | Nordhaus",
+          "description": "Tiefblaue Vase aus glasiertem Steinzeug, 24 cm hoch. Der schmale Hals gibt einzelnen Blumenstielen Halt."
+        },
+        "en": {
+          "title": "Stoneware Vase in Deep Blue | Nordhaus",
+          "description": "A 24 cm tall vase in deep blue glazed stoneware. Its narrow neck supports a single stem without a full bunch."
+        },
+        "es": {
+          "title": "Jarr\u00f3n de gres azul profundo | Nordhaus",
+          "description": "Jarr\u00f3n de gres esmaltado en azul profundo, de 24 cm de alto. Su cuello estrecho sostiene un solo tallo sin necesidad de un ramo."
+        }
+      },
+      "tags": [
+        "vase",
+        "stoneware",
+        "glazed ceramic",
+        "deep blue",
+        "fresh flowers",
+        "single stem"
+      ],
+      "altText": "A glossy deep blue vase with a rounded body, a long narrow neck and a slightly flared rim stands against a white background."
+    },
+    "stages": [
+      {
+        "name": "ingest",
+        "status": "ok",
+        "ms": 30,
+        "provider": "sharp",
+        "note": "jpeg \u2192 1200\u00d7846 PNG"
+      },
+      {
+        "name": "background",
+        "status": "ok",
+        "ms": 1702,
+        "provider": "rembg",
+        "model": "isnet-general-use + smoothing"
+      },
+      {
+        "name": "compose",
+        "status": "ok",
+        "ms": 53,
+        "provider": "sharp",
+        "note": "product luminance 0.25 \u00b7 612\u00d7612 px, standard framing, soft shadow"
+      },
+      {
+        "name": "copy",
+        "status": "ok",
+        "ms": 12934,
+        "provider": "openai",
+        "model": "gpt-6.2-sol",
+        "note": "brand: Nordhaus \u00b7 all rules met"
+      },
+      {
+        "name": "persist",
+        "status": "ok",
+        "ms": 1,
+        "provider": "static",
+        "note": "/r/VmWIdhWyMAlz"
+      }
+    ],
+    "estCostUsd": 0.05,
+    "watermarked": false,
+    "copyIssues": [],
+    "showcase": "Fine neck and glaze; every spec kept word for word in DE \u00b7 EN \u00b7 ES."
   },
   {
     "id": "KpmIXPzWLFNI",
@@ -132,14 +471,14 @@
     "copy": {
       "name": "White and Orange Running Shoe",
       "descriptions": {
-        "de": "Ein perforiertes Obermaterial in Weiß prägt diesen Laufschuh. Ein breites orangefarbenes Band zieht sich vom Zehenbereich bis zur Ferse, wo es ins Rötliche übergeht. Seitlich sitzt ein Sichtfenster in der hellen Sohle.\n\nMit den weißen Schnürsenkeln stellst du ein, wie fest der Schuh am Spann sitzt. Etwas lockerer auf dem Weg zur Tür, etwas fester vor dem ersten Schritt. Für Farbe ist schon gesorgt.",
+        "de": "Ein perforiertes Obermaterial in Wei\u00df pr\u00e4gt diesen Laufschuh. Ein breites orangefarbenes Band zieht sich vom Zehenbereich bis zur Ferse, wo es ins R\u00f6tliche \u00fcbergeht. Seitlich sitzt ein Sichtfenster in der hellen Sohle.\n\nMit den wei\u00dfen Schn\u00fcrsenkeln stellst du ein, wie fest der Schuh am Spann sitzt. Etwas lockerer auf dem Weg zur T\u00fcr, etwas fester vor dem ersten Schritt. F\u00fcr Farbe ist schon gesorgt.",
         "en": "A perforated white upper sits above a broad orange band on this running shoe. The band runs from toe to heel, where it deepens to red-orange. A small window is set into the side of the pale sole at the heel.\n\nUse the white laces to set the tension across the top of your foot before you head out. Plain socks will do. The shoe has the orange covered.",
-        "es": "El empeine blanco perforado marca el diseño de esta zapatilla de running. Una franja naranja recorre el lateral desde la puntera hasta el talón, donde el tono se vuelve más rojizo. La suela clara lleva una pequeña ventana a la altura del talón.\n\nAntes de salir a correr, regula la presión sobre el empeine con los cordones blancos. ¿Calcetines lisos? Con ese naranja, no hace falta complicarse."
+        "es": "El empeine blanco perforado marca el dise\u00f1o de esta zapatilla de running. Una franja naranja recorre el lateral desde la puntera hasta el tal\u00f3n, donde el tono se vuelve m\u00e1s rojizo. La suela clara lleva una peque\u00f1a ventana a la altura del tal\u00f3n.\n\nAntes de salir a correr, regula la presi\u00f3n sobre el empeine con los cordones blancos. \u00bfCalcetines lisos? Con ese naranja, no hace falta complicarse."
       },
       "bullets": {
         "de": [
-          "Schnürung: lässt sich am Spann lockerer oder fester einstellen",
-          "Orangefarbener Seitenstreifen: setzt einen klaren Kontrast zum weißen Obermaterial",
+          "Schn\u00fcrung: l\u00e4sst sich am Spann lockerer oder fester einstellen",
+          "Orangefarbener Seitenstreifen: setzt einen klaren Kontrast zum wei\u00dfen Obermaterial",
           "Sichtfenster an der Ferse: gibt den Blick in die Sohle frei"
         ],
         "en": [
@@ -148,15 +487,15 @@
           "Heel window: lets you see into the sole from the side"
         ],
         "es": [
-          "Cierre con cordones: ajusta la presión sobre el empeine a tu gusto",
+          "Cierre con cordones: ajusta la presi\u00f3n sobre el empeine a tu gusto",
           "Franja naranja: contrasta con el blanco sin cubrir todo el lateral",
-          "Ventana en el talón: deja ver el interior de la suela"
+          "Ventana en el tal\u00f3n: deja ver el interior de la suela"
         ]
       },
       "seo": {
         "de": {
           "title": "Laufschuh mit perforiertem Obermaterial | Trailmark",
-          "description": "Weiß-oranger Laufschuh mit perforiertem Obermaterial. Mit der Schnürung stellst du ein, wie fest der Schuh am Spann sitzt."
+          "description": "Wei\u00df-oranger Laufschuh mit perforiertem Obermaterial. Mit der Schn\u00fcrung stellst du ein, wie fest der Schuh am Spann sitzt."
         },
         "en": {
           "title": "Running Shoe with Perforated Upper | Trailmark",
@@ -164,7 +503,7 @@
         },
         "es": {
           "title": "Zapatilla de running con empeine perforado | Trailmark",
-          "description": "Zapatilla de running blanca y naranja con empeine perforado. Los cordones permiten regular la presión sobre el empeine."
+          "description": "Zapatilla de running blanca y naranja con empeine perforado. Los cordones permiten regular la presi\u00f3n sobre el empeine."
         }
       },
       "tags": [
@@ -184,7 +523,7 @@
         "status": "ok",
         "ms": 75,
         "provider": "sharp",
-        "note": "jpeg → 1200×960 PNG"
+        "note": "jpeg \u2192 1200\u00d7960 PNG"
       },
       {
         "name": "background",
@@ -198,7 +537,7 @@
         "status": "ok",
         "ms": 80,
         "provider": "sharp",
-        "note": "product luminance 0.67 · 756×756 px, standard framing, soft shadow"
+        "note": "product luminance 0.67 \u00b7 756\u00d7756 px, standard framing, soft shadow"
       },
       {
         "name": "copy",
@@ -206,7 +545,7 @@
         "ms": 20569,
         "provider": "openai",
         "model": "gpt-6.2-sol",
-        "note": "brand: Trailmark · all rules met"
+        "note": "brand: Trailmark \u00b7 all rules met"
       },
       {
         "name": "persist",
@@ -218,119 +557,119 @@
     ],
     "estCostUsd": 0.05,
     "watermarked": false,
-    "copyIssues": []
+    "copyIssues": [],
+    "showcase": "Laces and the gaps between them, cut cleanly."
   },
   {
-    "id": "VmWIdhWyMAlz",
-    "createdAt": "2026-11-25T17:57:36.924Z",
+    "id": "wEXSQSkD3a_U",
+    "createdAt": "2026-11-25T17:56:59.982Z",
     "source": "gallery",
     "brand": {
-      "id": "nordhaus",
-      "name": "Nordhaus"
+      "id": "trailmark",
+      "name": "Trailmark"
     },
     "meta": {
-      "productType": "ceramic vase",
-      "category": "Home & Living",
-      "material": "glazed stoneware",
-      "sku": "NH-VA-024",
-      "price": 49,
-      "compareAtPrice": 59,
-      "badge": "sale",
-      "featured": true,
-      "notes": "24 cm tall · Ø 9 cm · watertight"
+      "productType": "insulated bottle",
+      "category": "Outdoor & Sports",
+      "material": "stainless steel",
+      "sku": "TM-BT-750",
+      "price": 34.9,
+      "badge": "bestseller",
+      "notes": "750 ml \u00b7 keeps drinks cold for 24 h"
     },
-    "originalUrl": "/gallery/VmWIdhWyMAlz/original.png",
-    "outputUrl": "/gallery/VmWIdhWyMAlz/output.png",
-    "width": 612,
-    "height": 612,
+    "originalUrl": "/gallery/wEXSQSkD3a_U/original.png",
+    "outputUrl": "/gallery/wEXSQSkD3a_U/output.png",
+    "width": 1424,
+    "height": 1424,
     "copy": {
-      "name": "Deep Blue Stoneware Vase",
+      "name": "24 h Insulated Bottle",
       "descriptions": {
-        "de": "Glasiertes Steinzeug in tiefem Blau. Der bauchige Körper läuft in einen langen, schmalen Hals aus, dessen Rand sich leicht nach außen öffnet. Die Vase ist 24 cm hoch, hat einen Durchmesser von 9 cm und ist wasserdicht.\n\nAuf dem Tisch genügt ein einzelner Stiel. Ist die Blüte verblüht, kann die Vase einfach stehen bleiben. Je nach Licht wirkt das Blau mal heller, mal dunkler.",
-        "en": "Glazed stoneware in deep blue, with a rounded body that draws up into a long, narrow neck. The rim opens out slightly. The vase is 24 cm tall, measures 9 cm in diameter and is watertight.\n\nOn the table, one stem is enough. Once the flower has faded, leave the vase where it is. The blue shifts as the light moves across it.",
-        "es": "Gres esmaltado en azul profundo. Del cuerpo redondeado nace un cuello largo y estrecho que se abre ligeramente en el borde. El jarrón mide 24 cm de alto y 9 cm de diámetro y no deja pasar el agua.\n\nEn la mesa basta con una sola flor. Cuando se marchite, el jarrón puede quedarse donde está. El azul cambia de tono según le da la luz."
+        "de": "Die Isolierung h\u00e4lt Getr\u00e4nke 24 Stunden lang kalt. Die gr\u00fcne Trinkflasche aus Edelstahl fasst 750 ml. Sie hat eine matte Oberfl\u00e4che, abgerundete Schultern und einen farblich passenden Deckel.\n\nMorgens einf\u00fcllen, einpacken, losgehen. Wenn du am Nachmittag zur Flasche greifst, ist der Schluck noch kalt. Die Sonne darf sich um den Anstieg k\u00fcmmern, nicht um dein Getr\u00e4nk.",
+        "en": "Insulated to keep drinks cold for 24 hours, this stainless steel bottle holds 750 ml. It has a matte green finish, rounded shoulders and a matching cap.\n\nFill it before you set off. When you stop for a drink halfway up the afternoon climb, it\u2019ll still be cold. One less thing warming up in the sun.",
+        "es": "El aislamiento de esta botella de acero inoxidable mantiene las bebidas fr\u00edas durante 24 horas. Tiene una capacidad de 750 ml, un acabado verde mate y un tap\u00f3n del mismo color.\n\nLl\u00e9nala antes de salir y gu\u00e1rdala en la mochila. Cuando pares a beber en plena subida, el agua seguir\u00e1 fr\u00eda. Bastante calor llevas ya encima."
       },
       "bullets": {
         "de": [
-          "Schmaler Hals: gibt einzelnen Stielen Halt",
-          "Wasserdicht: auch für frische Blumen",
-          "9 cm Durchmesser: braucht wenig Platz auf dem Regal"
+          "750 ml Fassungsverm\u00f6gen: genug f\u00fcr mehrere Trinkpausen",
+          "24 Stunden K\u00fchlung: auch bei der letzten Rast noch ein kalter Schluck",
+          "Matte Oberfl\u00e4che: gl\u00e4nzt nicht in der Sonne"
         ],
         "en": [
-          "Narrow neck: keeps single stems upright",
-          "Watertight body: holds water for fresh flowers",
-          "9 cm diameter: leaves room on a shelf"
+          "750 ml capacity: enough for several drink stops",
+          "24 hours of cold: a chilled sip even at the last stop",
+          "Matte finish: no glossy shine in the sun"
         ],
         "es": [
-          "Cuello estrecho: mantiene erguido un solo tallo",
-          "Cuerpo estanco: permite poner flores frescas en agua",
-          "9 cm de diámetro: ocupa poco espacio en la estantería"
+          "Capacidad de 750 ml: da para varias paradas",
+          "24 horas de fr\u00edo: un trago fresco incluso en la \u00faltima parada",
+          "Acabado mate: sin brillos bajo el sol"
         ]
       },
       "seo": {
         "de": {
-          "title": "Steinzeugvase in tiefem Blau | Nordhaus",
-          "description": "Tiefblaue Vase aus glasiertem Steinzeug, 24 cm hoch. Der schmale Hals gibt einzelnen Blumenstielen Halt."
+          "title": "Isolierflasche aus Edelstahl, 750 ml | Trailmark",
+          "description": "Gr\u00fcne Isolierflasche aus Edelstahl mit 750 ml Volumen. H\u00e4lt Getr\u00e4nke 24 Stunden kalt, damit auch der letzte Schluck noch k\u00fchl ist."
         },
         "en": {
-          "title": "Stoneware Vase in Deep Blue | Nordhaus",
-          "description": "A 24 cm tall vase in deep blue glazed stoneware. Its narrow neck supports a single stem without a full bunch."
+          "title": "Insulated Bottle, 750 ml Stainless Steel | Trailmark",
+          "description": "A green stainless steel insulated bottle with a 750 ml capacity. It keeps drinks cold for 24 hours, so your last sip is still cold."
         },
         "es": {
-          "title": "Jarrón de gres azul profundo | Nordhaus",
-          "description": "Jarrón de gres esmaltado en azul profundo, de 24 cm de alto. Su cuello estrecho sostiene un solo tallo sin necesidad de un ramo."
+          "title": "Botella t\u00e9rmica de acero, 750 ml | Trailmark",
+          "description": "Botella t\u00e9rmica verde de acero inoxidable con 750 ml de capacidad. Mantiene la bebida fr\u00eda durante 24 horas, hasta el \u00faltimo trago."
         }
       },
       "tags": [
-        "vase",
-        "stoneware",
-        "glazed ceramic",
-        "deep blue",
-        "fresh flowers",
-        "single stem"
+        "insulated bottle",
+        "stainless steel",
+        "green",
+        "hydration",
+        "hiking",
+        "outdoors"
       ],
-      "altText": "A glossy deep blue vase with a rounded body, a long narrow neck and a slightly flared rim stands against a white background."
+      "altText": "A matte green bottle with rounded shoulders and a matching cap stands against a white background."
     },
     "stages": [
       {
         "name": "ingest",
         "status": "ok",
-        "ms": 30,
+        "ms": 53,
         "provider": "sharp",
-        "note": "jpeg → 1200×846 PNG"
+        "note": "jpeg \u2192 1200\u00d71800 PNG"
       },
       {
         "name": "background",
         "status": "ok",
-        "ms": 1702,
+        "ms": 2968,
         "provider": "rembg",
         "model": "isnet-general-use + smoothing"
       },
       {
         "name": "compose",
         "status": "ok",
-        "ms": 53,
+        "ms": 182,
         "provider": "sharp",
-        "note": "product luminance 0.25 · 612×612 px, standard framing, soft shadow"
+        "note": "product luminance 0.39 \u00b7 1424\u00d71424 px, standard framing, soft shadow"
       },
       {
         "name": "copy",
         "status": "ok",
-        "ms": 12934,
+        "ms": 15104,
         "provider": "openai",
         "model": "gpt-6.2-sol",
-        "note": "brand: Nordhaus · all rules met"
+        "note": "brand: Trailmark \u00b7 all rules met"
       },
       {
         "name": "persist",
         "status": "ok",
-        "ms": 1,
+        "ms": 2,
         "provider": "static",
-        "note": "/r/VmWIdhWyMAlz"
+        "note": "/r/wEXSQSkD3a_U"
       }
     ],
     "estCostUsd": 0.05,
     "watermarked": false,
-    "copyIssues": []
+    "copyIssues": [],
+    "showcase": "Matte surface; soft contact shadow placed under the product."
   }
 ]
