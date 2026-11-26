@@ -1,0 +1,336 @@
+[
+  {
+    "id": "wEXSQSkD3a_U",
+    "createdAt": "2026-11-25T17:56:59.982Z",
+    "source": "gallery",
+    "brand": {
+      "id": "trailmark",
+      "name": "Trailmark"
+    },
+    "meta": {
+      "productType": "insulated bottle",
+      "category": "Outdoor & Sports",
+      "material": "stainless steel",
+      "sku": "TM-BT-750",
+      "price": 34.9,
+      "badge": "bestseller",
+      "notes": "750 ml · keeps drinks cold for 24 h"
+    },
+    "originalUrl": "/gallery/wEXSQSkD3a_U/original.png",
+    "outputUrl": "/gallery/wEXSQSkD3a_U/output.png",
+    "width": 1424,
+    "height": 1424,
+    "copy": {
+      "name": "24 h Insulated Bottle",
+      "descriptions": {
+        "de": "Die Isolierung hält Getränke 24 Stunden lang kalt. Die grüne Trinkflasche aus Edelstahl fasst 750 ml. Sie hat eine matte Oberfläche, abgerundete Schultern und einen farblich passenden Deckel.\n\nMorgens einfüllen, einpacken, losgehen. Wenn du am Nachmittag zur Flasche greifst, ist der Schluck noch kalt. Die Sonne darf sich um den Anstieg kümmern, nicht um dein Getränk.",
+        "en": "Insulated to keep drinks cold for 24 hours, this stainless steel bottle holds 750 ml. It has a matte green finish, rounded shoulders and a matching cap.\n\nFill it before you set off. When you stop for a drink halfway up the afternoon climb, it’ll still be cold. One less thing warming up in the sun.",
+        "es": "El aislamiento de esta botella de acero inoxidable mantiene las bebidas frías durante 24 horas. Tiene una capacidad de 750 ml, un acabado verde mate y un tapón del mismo color.\n\nLlénala antes de salir y guárdala en la mochila. Cuando pares a beber en plena subida, el agua seguirá fría. Bastante calor llevas ya encima."
+      },
+      "bullets": {
+        "de": [
+          "750 ml Fassungsvermögen: genug für mehrere Trinkpausen",
+          "24 Stunden Kühlung: auch bei der letzten Rast noch ein kalter Schluck",
+          "Matte Oberfläche: glänzt nicht in der Sonne"
+        ],
+        "en": [
+          "750 ml capacity: enough for several drink stops",
+          "24 hours of cold: a chilled sip even at the last stop",
+          "Matte finish: no glossy shine in the sun"
+        ],
+        "es": [
+          "Capacidad de 750 ml: da para varias paradas",
+          "24 horas de frío: un trago fresco incluso en la última parada",
+          "Acabado mate: sin brillos bajo el sol"
+        ]
+      },
+      "seo": {
+        "de": {
+          "title": "Isolierflasche aus Edelstahl, 750 ml | Trailmark",
+          "description": "Grüne Isolierflasche aus Edelstahl mit 750 ml Volumen. Hält Getränke 24 Stunden kalt, damit auch der letzte Schluck noch kühl ist."
+        },
+        "en": {
+          "title": "Insulated Bottle, 750 ml Stainless Steel | Trailmark",
+          "description": "A green stainless steel insulated bottle with a 750 ml capacity. It keeps drinks cold for 24 hours, so your last sip is still cold."
+        },
+        "es": {
+          "title": "Botella térmica de acero, 750 ml | Trailmark",
+          "description": "Botella térmica verde de acero inoxidable con 750 ml de capacidad. Mantiene la bebida fría durante 24 horas, hasta el último trago."
+        }
+      },
+      "tags": [
+        "insulated bottle",
+        "stainless steel",
+        "green",
+        "hydration",
+        "hiking",
+        "outdoors"
+      ],
+      "altText": "A matte green bottle with rounded shoulders and a matching cap stands against a white background."
+    },
+    "stages": [
+      {
+        "name": "ingest",
+        "status": "ok",
+        "ms": 53,
+        "provider": "sharp",
+        "note": "jpeg → 1200×1800 PNG"
+      },
+      {
+        "name": "background",
+        "status": "ok",
+        "ms": 2968,
+        "provider": "rembg",
+        "model": "isnet-general-use + smoothing"
+      },
+      {
+        "name": "compose",
+        "status": "ok",
+        "ms": 182,
+        "provider": "sharp",
+        "note": "product luminance 0.39 · 1424×1424 px, standard framing, soft shadow"
+      },
+      {
+        "name": "copy",
+        "status": "ok",
+        "ms": 15104,
+        "provider": "openai",
+        "model": "gpt-6.2-sol",
+        "note": "brand: Trailmark · all rules met"
+      },
+      {
+        "name": "persist",
+        "status": "ok",
+        "ms": 2,
+        "provider": "static",
+        "note": "/r/wEXSQSkD3a_U"
+      }
+    ],
+    "estCostUsd": 0.05,
+    "watermarked": false,
+    "copyIssues": []
+  },
+  {
+    "id": "KpmIXPzWLFNI",
+    "createdAt": "2026-11-25T17:57:22.202Z",
+    "source": "gallery",
+    "brand": {
+      "id": "trailmark",
+      "name": "Trailmark"
+    },
+    "meta": {
+      "productType": "running shoe",
+      "category": "Fashion & Shoes",
+      "sku": "TM-RS-118",
+      "price": 129,
+      "badge": "new"
+    },
+    "originalUrl": "/gallery/KpmIXPzWLFNI/original.png",
+    "outputUrl": "/gallery/KpmIXPzWLFNI/output.png",
+    "width": 756,
+    "height": 756,
+    "copy": {
+      "name": "White and Orange Running Shoe",
+      "descriptions": {
+        "de": "Ein perforiertes Obermaterial in Weiß prägt diesen Laufschuh. Ein breites orangefarbenes Band zieht sich vom Zehenbereich bis zur Ferse, wo es ins Rötliche übergeht. Seitlich sitzt ein Sichtfenster in der hellen Sohle.\n\nMit den weißen Schnürsenkeln stellst du ein, wie fest der Schuh am Spann sitzt. Etwas lockerer auf dem Weg zur Tür, etwas fester vor dem ersten Schritt. Für Farbe ist schon gesorgt.",
+        "en": "A perforated white upper sits above a broad orange band on this running shoe. The band runs from toe to heel, where it deepens to red-orange. A small window is set into the side of the pale sole at the heel.\n\nUse the white laces to set the tension across the top of your foot before you head out. Plain socks will do. The shoe has the orange covered.",
+        "es": "El empeine blanco perforado marca el diseño de esta zapatilla de running. Una franja naranja recorre el lateral desde la puntera hasta el talón, donde el tono se vuelve más rojizo. La suela clara lleva una pequeña ventana a la altura del talón.\n\nAntes de salir a correr, regula la presión sobre el empeine con los cordones blancos. ¿Calcetines lisos? Con ese naranja, no hace falta complicarse."
+      },
+      "bullets": {
+        "de": [
+          "Schnürung: lässt sich am Spann lockerer oder fester einstellen",
+          "Orangefarbener Seitenstreifen: setzt einen klaren Kontrast zum weißen Obermaterial",
+          "Sichtfenster an der Ferse: gibt den Blick in die Sohle frei"
+        ],
+        "en": [
+          "Lace-up fastening: adjust how snugly the shoe sits across your foot",
+          "Orange side band: adds colour without taking over the white upper",
+          "Heel window: lets you see into the sole from the side"
+        ],
+        "es": [
+          "Cierre con cordones: ajusta la presión sobre el empeine a tu gusto",
+          "Franja naranja: contrasta con el blanco sin cubrir todo el lateral",
+          "Ventana en el talón: deja ver el interior de la suela"
+        ]
+      },
+      "seo": {
+        "de": {
+          "title": "Laufschuh mit perforiertem Obermaterial | Trailmark",
+          "description": "Weiß-oranger Laufschuh mit perforiertem Obermaterial. Mit der Schnürung stellst du ein, wie fest der Schuh am Spann sitzt."
+        },
+        "en": {
+          "title": "Running Shoe with Perforated Upper | Trailmark",
+          "description": "A white and orange running shoe with a perforated upper. The white laces let you adjust the fit across the top of your foot."
+        },
+        "es": {
+          "title": "Zapatilla de running con empeine perforado | Trailmark",
+          "description": "Zapatilla de running blanca y naranja con empeine perforado. Los cordones permiten regular la presión sobre el empeine."
+        }
+      },
+      "tags": [
+        "running shoes",
+        "running",
+        "white",
+        "orange",
+        "lace-up",
+        "perforated upper",
+        "heel window"
+      ],
+      "altText": "Side view of a white lace-up running shoe angled toe-down, with perforations, an orange side band and a window in the sole at the heel."
+    },
+    "stages": [
+      {
+        "name": "ingest",
+        "status": "ok",
+        "ms": 75,
+        "provider": "sharp",
+        "note": "jpeg → 1200×960 PNG"
+      },
+      {
+        "name": "background",
+        "status": "ok",
+        "ms": 1492,
+        "provider": "rembg",
+        "model": "isnet-general-use + smoothing"
+      },
+      {
+        "name": "compose",
+        "status": "ok",
+        "ms": 80,
+        "provider": "sharp",
+        "note": "product luminance 0.67 · 756×756 px, standard framing, soft shadow"
+      },
+      {
+        "name": "copy",
+        "status": "ok",
+        "ms": 20569,
+        "provider": "openai",
+        "model": "gpt-6.2-sol",
+        "note": "brand: Trailmark · all rules met"
+      },
+      {
+        "name": "persist",
+        "status": "ok",
+        "ms": 2,
+        "provider": "static",
+        "note": "/r/KpmIXPzWLFNI"
+      }
+    ],
+    "estCostUsd": 0.05,
+    "watermarked": false,
+    "copyIssues": []
+  },
+  {
+    "id": "VmWIdhWyMAlz",
+    "createdAt": "2026-11-25T17:57:36.924Z",
+    "source": "gallery",
+    "brand": {
+      "id": "nordhaus",
+      "name": "Nordhaus"
+    },
+    "meta": {
+      "productType": "ceramic vase",
+      "category": "Home & Living",
+      "material": "glazed stoneware",
+      "sku": "NH-VA-024",
+      "price": 49,
+      "compareAtPrice": 59,
+      "badge": "sale",
+      "featured": true,
+      "notes": "24 cm tall · Ø 9 cm · watertight"
+    },
+    "originalUrl": "/gallery/VmWIdhWyMAlz/original.png",
+    "outputUrl": "/gallery/VmWIdhWyMAlz/output.png",
+    "width": 612,
+    "height": 612,
+    "copy": {
+      "name": "Deep Blue Stoneware Vase",
+      "descriptions": {
+        "de": "Glasiertes Steinzeug in tiefem Blau. Der bauchige Körper läuft in einen langen, schmalen Hals aus, dessen Rand sich leicht nach außen öffnet. Die Vase ist 24 cm hoch, hat einen Durchmesser von 9 cm und ist wasserdicht.\n\nAuf dem Tisch genügt ein einzelner Stiel. Ist die Blüte verblüht, kann die Vase einfach stehen bleiben. Je nach Licht wirkt das Blau mal heller, mal dunkler.",
+        "en": "Glazed stoneware in deep blue, with a rounded body that draws up into a long, narrow neck. The rim opens out slightly. The vase is 24 cm tall, measures 9 cm in diameter and is watertight.\n\nOn the table, one stem is enough. Once the flower has faded, leave the vase where it is. The blue shifts as the light moves across it.",
+        "es": "Gres esmaltado en azul profundo. Del cuerpo redondeado nace un cuello largo y estrecho que se abre ligeramente en el borde. El jarrón mide 24 cm de alto y 9 cm de diámetro y no deja pasar el agua.\n\nEn la mesa basta con una sola flor. Cuando se marchite, el jarrón puede quedarse donde está. El azul cambia de tono según le da la luz."
+      },
+      "bullets": {
+        "de": [
+          "Schmaler Hals: gibt einzelnen Stielen Halt",
+          "Wasserdicht: auch für frische Blumen",
+          "9 cm Durchmesser: braucht wenig Platz auf dem Regal"
+        ],
+        "en": [
+          "Narrow neck: keeps single stems upright",
+          "Watertight body: holds water for fresh flowers",
+          "9 cm diameter: leaves room on a shelf"
+        ],
+        "es": [
+          "Cuello estrecho: mantiene erguido un solo tallo",
+          "Cuerpo estanco: permite poner flores frescas en agua",
+          "9 cm de diámetro: ocupa poco espacio en la estantería"
+        ]
+      },
+      "seo": {
+        "de": {
+          "title": "Steinzeugvase in tiefem Blau | Nordhaus",
+          "description": "Tiefblaue Vase aus glasiertem Steinzeug, 24 cm hoch. Der schmale Hals gibt einzelnen Blumenstielen Halt."
+        },
+        "en": {
+          "title": "Stoneware Vase in Deep Blue | Nordhaus",
+          "description": "A 24 cm tall vase in deep blue glazed stoneware. Its narrow neck supports a single stem without a full bunch."
+        },
+        "es": {
+          "title": "Jarrón de gres azul profundo | Nordhaus",
+          "description": "Jarrón de gres esmaltado en azul profundo, de 24 cm de alto. Su cuello estrecho sostiene un solo tallo sin necesidad de un ramo."
+        }
+      },
+      "tags": [
+        "vase",
+        "stoneware",
+        "glazed ceramic",
+        "deep blue",
+        "fresh flowers",
+        "single stem"
+      ],
+      "altText": "A glossy deep blue vase with a rounded body, a long narrow neck and a slightly flared rim stands against a white background."
+    },
+    "stages": [
+      {
+        "name": "ingest",
+        "status": "ok",
+        "ms": 30,
+        "provider": "sharp",
+        "note": "jpeg → 1200×846 PNG"
+      },
+      {
+        "name": "background",
+        "status": "ok",
+        "ms": 1702,
+        "provider": "rembg",
+        "model": "isnet-general-use + smoothing"
+      },
+      {
+        "name": "compose",
+        "status": "ok",
+        "ms": 53,
+        "provider": "sharp",
+        "note": "product luminance 0.25 · 612×612 px, standard framing, soft shadow"
+      },
+      {
+        "name": "copy",
+        "status": "ok",
+        "ms": 12934,
+        "provider": "openai",
+        "model": "gpt-6.2-sol",
+        "note": "brand: Nordhaus · all rules met"
+      },
+      {
+        "name": "persist",
+        "status": "ok",
+        "ms": 1,
+        "provider": "static",
+        "note": "/r/VmWIdhWyMAlz"
+      }
+    ],
+    "estCostUsd": 0.05,
+    "watermarked": false,
+    "copyIssues": []
+  }
+]
