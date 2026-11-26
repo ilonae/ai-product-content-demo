@@ -30,8 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/#gallery" className="hover:text-ink">Gallery</a>
               <a href="/#cms" className="hidden hover:text-ink sm:inline">CMS</a>
               <a href="/store" className="hover:text-ink">Store</a>
-              {/* TODO: point at your public repository */}
-              <a href="https://github.com/" className="border-b border-ink pb-0.5 text-ink">Code</a>
+              <a href="https://github.com/ilonae/ai-product-content-demo" className="border-b border-ink pb-0.5 text-ink">Code</a>
             </nav>
           </div>
         </header>
@@ -40,8 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="border-t border-sand">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 sm:flex-row sm:justify-between sm:px-6">
             <p className="caption">
-              {/* TODO: link to your public repository */}
-              <a href="https://github.com/" className="text-ink underline underline-offset-4">GitHub demo</a> · rebuilt from a production e-commerce tool
+              <a href="https://github.com/ilonae/ai-product-content-demo" className="text-ink underline underline-offset-4">GitHub demo</a> · rebuilt from a production e-commerce tool
             </p>
             <p className="caption">Live outputs are watermarked and capped per day</p>
           </div>
