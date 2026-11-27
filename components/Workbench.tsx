@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { Sample } from '@/data/samples'
 import type { QualityCheck, QualityResult } from '@/lib/quality'
 import { checkBitmap } from '@/lib/quality-client'
+import { MAX_SHRINK_BYTES, shrinkToLimit } from '@/lib/shrink-client'
 import { BADGES, SHOP_CATEGORIES, stagesFor, type Badge, type StageName, type StageRecord } from '@/lib/types'
 import { PhotoEditor, type EditOp, type PhotoEditorHandle } from './PhotoEditor'
 import { StageTimeline } from './StageTimeline'
@@ -131,9 +132,23 @@ export function Workbench({ presets, samples, siteKey }: Props) {
     setMessage('')
     if (!f) return
     if (!TYPES.includes(f.type)) return setMessage('That file type won’t work. Use a JPEG, PNG or WebP photo.')
-    if (f.size > MAX_BYTES) return setMessage(`This photo is ${(f.size / 1024 / 1024).toFixed(1)} MB. The limit is 4 MB.`)
+    if (f.size > MAX_SHRINK_BYTES) return setMessage(`This photo is ${(f.size / 1024 / 1024).toFixed(1)} MB. The limit is 30 MB.`)
+    let bmp: ImageBitmap
     try {
-      const bmp = await createImageBitmap(f, { imageOrientation: 'from-image' })
+      bmp = await createImageBitmap(f, { imageOrientation: 'from-image' })
+    } catch {
+      return setMessage('That image could not be opened. Try another file.')
+    }
+    try {
+      // Large phone photos are shrunk in the browser to fit the 4 MB upload limit.
+      const shrunk = await shrinkToLimit(f, bmp, MAX_BYTES)
+      f = shrunk.file
+      bmp = shrunk.bitmap
+    } catch {
+      bmp.close()
+      return setMessage('That photo is too large to shrink here. Try one under 4 MB.')
+    }
+    try {
       setFile(f)
       setBitmap(bmp)
       setThumb(URL.createObjectURL(f))
@@ -330,7 +345,7 @@ export function Workbench({ presets, samples, siteKey }: Props) {
           >
             <div className="flex h-full flex-col items-center justify-center px-5 pb-12 pt-14 text-center">
               <p className="font-medium">Drop a studio photo, paste it, or browse</p>
-              <p className="mt-1 text-sm text-muted">Light plain backdrop · soft even light · at least 1000 px · JPEG, PNG or WebP up to 4 MB</p>
+              <p className="mt-1 text-sm text-muted">Light plain backdrop · soft even light · at least 1000 px · JPEG, PNG or WebP · large photos are shrunk automatically</p>
               {studioSamples.length > 0 && (
                 <div className="mt-6 flex flex-wrap items-center justify-center gap-2" onClick={(e) => e.stopPropagation()}>
                   <span className="text-sm text-muted">No photo handy?</span>

@@ -165,7 +165,7 @@ With `PIPELINE_MOCK=1` and no keys, everything runs locally: a naive cut-out, te
 npm run typecheck && npm test && npm run build
 ```
 
-There are 60 tests covering the image stages, the pipeline (stage order, live reporting, failure path), the studio-quality gate, the retouching tools (AI inpainting with a local fallback, only the masked area changes, grow into shadow), the guardrails (rate limit, spend cap and refunds, the $0.15 daily cap across all visitors, trusted client IP, salt, pixel limit), upload moderation (fails closed), demo-store privacy, the purge secret, the prompt and the copy checker, publishing (demo store drafts, image uploads to Shopify and WordPress, the Shopify token exchange), and every connector (Shopify draft creation and user errors, webhook signature, CSV escaping and formula injection). CI runs the same on every push (`.github/workflows/ci.yml`).
+There are 62 tests covering the image stages, the pipeline (stage order, live reporting, failure path), the studio-quality gate, the retouching tools (AI inpainting with a local fallback, only the masked area changes, grow into shadow), the guardrails (rate limit, spend cap and refunds, the $0.15 daily cap across all visitors, trusted client IP, salt, pixel limit), upload moderation (fails closed), demo-store privacy, the purge secret, the prompt and the copy checker, publishing (demo store drafts, image uploads to Shopify and WordPress, the Shopify token exchange), and every connector (Shopify draft creation and user errors, webhook signature, CSV escaping and formula injection). CI runs the same on every push (`.github/workflows/ci.yml`).
 
 ## What to customise
 
