@@ -20,7 +20,8 @@ async function rembg(png: Buffer, cfg: Config): Promise<Buffer> {
       ...(cfg.rembgToken ? { Authorization: `Bearer ${cfg.rembgToken}` } : {}),
     },
     body: new Uint8Array(png),
-    signal: AbortSignal.timeout(30_000),
+    // A scaled-to-zero Fly machine takes about 20 s to wake before it starts on the image.
+    signal: AbortSignal.timeout(60_000),
   })
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
   return Buffer.from(await res.arrayBuffer())

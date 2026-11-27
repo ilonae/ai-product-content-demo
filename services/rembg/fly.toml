@@ -1,5 +1,5 @@
-# fly launch --no-deploy --copy-config && fly secrets set REMBG_TOKEN=... && fly deploy
-app = "product-pipeline-rembg"   # TODO: your app name
+# fly apps create <name> && fly secrets set REMBG_TOKEN=... && fly deploy --remote-only
+app = "ai-product-content-demo-rembg"
 primary_region = "fra"
 
 [http_service]
