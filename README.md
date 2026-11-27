@@ -1,5 +1,11 @@
 # AI Product-Content Pipeline
 
+[![CI](https://github.com/ilonae/ai-product-content-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/ilonae/ai-product-content-demo/actions/workflows/ci.yml)
+
+**[Try the live demo →](https://ai-product-content-demo.vercel.app)** · Next.js 16 · TypeScript · OpenAI · self-hosted rembg on Fly.io · Upstash Redis · Vercel Blob · 65 tests + CI
+
+![A gallery run: raw product photo in, catalogue image and a German/English/Spanish listing out](docs/demo.gif)
+
 Upload a raw product photo. The pipeline returns a **catalogue-ready image** (background removed, composited on white) and **on-brand product copy in German, English and Spanish**, written in the shop's own voice from a short company bio. Every run gets a **shareable permalink** (`/r/<id>`), and any result can be **published to a CMS as a draft** (Shopify, WooCommerce, any other system via a signed webhook, or CSV import).
 
 This is a portfolio-safe rebuild of a tool I built and ran in production for an e-commerce start-up. It uses SFW sample products, a cached gallery as the default proof, and a **capped** live path, so anyone can try it without running up a bill.
