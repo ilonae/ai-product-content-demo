@@ -13,6 +13,8 @@ The production tool ran on the shop owner's machine with their own API keys. A p
 - **Gallery**: real cached pipeline runs, permalinked and served as static files. Zero marginal cost, always on. It shows hard cases on purpose: a white product on a light backdrop, open gaps between legs and rungs, and a dark product.
 - **Live path**: a limited "try it yourself" flow behind guardrails:
   - Cloudflare **Turnstile** bot check on submit.
+  - A **content check** on every upload: the photo and the visitor's text go through OpenAI's moderation endpoint (free) before anything is spent or stored. If the check can't run in production, the upload is refused.
+  - **Privacy and retention**: a visitor's result page is shareable by link but never indexed; in the demo store each visitor sees only their own drafts (plus the owner's showcase). A daily schedule (`vercel.json` → `/api/purge`, protected by `CRON_SECRET`) deletes visitors' runs and images after 30 days and their drafts after 7.
   - Per-IP **rate limit** via Upstash Redis (default: 2 runs per IP per day). It only ever stores a salted hash of the IP, and it trusts Cloudflare's `cf-connecting-ip` only when told the origin sits behind Cloudflare (`TRUST_CLOUDFLARE=1`), since that header can otherwise be spoofed.
   - A hard **daily spend cap**. Each run **reserves** its estimated cost *before* it starts, so concurrent runs can't overshoot. Afterwards the reservation is settled to the run's actual estimate, and a run that fails on our side is given back. When the cap is hit, the page switches to "at capacity — browse the gallery".
   - Cheap checks come before expensive ones: the declared size, then the bot check (its token travels in a header, so it runs before the upload is read), then a header-only image check with a 40-megapixel limit against decompression bombs, and only then the rate limit.
@@ -25,7 +27,7 @@ When the cap trips, the experience falls back to the gallery. It never errors ou
 ## Architecture
 
 ```
-Browser ──> Next.js 15 (Vercel)
+Browser ──> Next.js 16 (Vercel)
               │  app/page.tsx            gallery + "try it" form (Turnstile)
               │  app/api/generate        server-side orchestration, streams each stage (NDJSON)
               │  app/r/[id]              SSR results permalink (+ OG tags for sharing)
@@ -104,7 +106,7 @@ Publishing happens on the result page: pick the language, press **Publish**, and
 
 | Target | How | Who can publish |
 |---|---|---|
-| **Demo store** | Built-in sandbox shop at `/store`: drafts with image, name, description, key features, price, tags | Every visitor (rate-limited) |
+| **Demo store** | Built-in sandbox shop at `/store`: drafts with image, name, description, key features, price, tags | Every visitor (rate-limited; each sees only their own drafts) |
 | Shopify | Admin GraphQL: the image file goes up as a staged upload, then `productCreate` (title, description, tags, SEO, image) and `productVariantsBulkUpdate` (price, compare-at, SKU) | Owner |
 | WooCommerce | REST v3 draft (regular/sale price, SKU, Featured, tags, key features); the image goes to the WordPress media library via an application password | Owner |
 | Any other CMS | Signed JSON POST (HMAC-SHA256 in `x-signature`), image included as base64 | Owner |
@@ -138,7 +140,9 @@ npm install
 npm run dev
 ```
 
-With `PIPELINE_MOCK=1` and no keys, everything runs locally: a naive cut-out, template copy, files in `.data/` and in-memory limits. Production refuses those fallbacks unless `ALLOW_LOCAL_FALLBACKS=1` is set, which is only meant for `next start` on your own machine.
+If the repo sits in an iCloud-synced folder (Desktop & Documents), Turbopack's build output gets corrupted by the sync: build locally with `npm run build:local` (webpack). Vercel uses the default build.
+
+With `PIPELINE_MOCK=1` and no keys, everything runs locally: a naive cut-out, template copy, files in `.data/` and in-memory limits. Production refuses those fallbacks unless `ALLOW_LOCAL_FALLBACKS=1` is set, which is only meant for `next start` on your own machine; on Vercel the flag is ignored, so it can never switch off the bot check or the shared spend cap. A production visitor is the owner only with `PUBLISH_TOKEN`, whatever else is set.
 
 **Gallery:** put a few SFW product photos in `samples/` and run `npm run gallery:build` (see `samples/README.md`).
 
@@ -161,7 +165,7 @@ With `PIPELINE_MOCK=1` and no keys, everything runs locally: a naive cut-out, te
 npm run typecheck && npm test && npm run build
 ```
 
-There are 52 tests covering the image stages, the pipeline (stage order, live reporting, failure path), the studio-quality gate, the retouching tools (AI inpainting with a local fallback, only the masked area changes, grow into shadow), the guardrails (rate limit, spend cap and refunds, the $0.15 daily cap across all visitors, trusted client IP, salt, pixel limit), the prompt and the copy checker, publishing (demo store drafts, image uploads to Shopify and WordPress, the Shopify token exchange), and every connector (Shopify draft creation and user errors, webhook signature, CSV escaping and formula injection). CI runs the same on every push (`.github/workflows/ci.yml`).
+There are 60 tests covering the image stages, the pipeline (stage order, live reporting, failure path), the studio-quality gate, the retouching tools (AI inpainting with a local fallback, only the masked area changes, grow into shadow), the guardrails (rate limit, spend cap and refunds, the $0.15 daily cap across all visitors, trusted client IP, salt, pixel limit), upload moderation (fails closed), demo-store privacy, the purge secret, the prompt and the copy checker, publishing (demo store drafts, image uploads to Shopify and WordPress, the Shopify token exchange), and every connector (Shopify draft creation and user errors, webhook signature, CSV escaping and formula injection). CI runs the same on every push (`.github/workflows/ci.yml`).
 
 ## What to customise
 

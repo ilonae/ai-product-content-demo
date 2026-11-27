@@ -2,6 +2,7 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { RUN_ID_RE } from '../id'
 import type { Run } from '../types'
+import { dedupeDrafts, SHOWCASE, visibleTo, VISITOR_RE } from '../visitor'
 import type { DemoProduct, ImageName, Store } from './types'
 
 /** Development store: files under .data/, served by /api/files. Not for serverless production. */
@@ -41,13 +42,14 @@ export class LocalStore implements Store {
   }
 
   async saveDemoProduct(entry: DemoProduct) {
-    if (!RUN_ID_RE.test(entry.runId)) throw new Error('invalid run id')
+    const visitor = entry.visitor ?? SHOWCASE
+    if (!RUN_ID_RE.test(entry.runId) || !VISITOR_RE.test(visitor)) throw new Error('invalid draft id')
     const dir = path.join(this.dir, 'store')
     await mkdir(dir, { recursive: true })
-    await writeFile(path.join(dir, `${entry.runId}.json`), JSON.stringify(entry, null, 2))
+    await writeFile(path.join(dir, `${entry.runId}.${visitor}.json`), JSON.stringify(entry, null, 2))
   }
 
-  async listDemoProducts(limit = 48) {
+  async listDemoProducts(viewer: string | null, limit = 48) {
     const dir = path.join(this.dir, 'store')
     let files: string[] = []
     try {
@@ -56,6 +58,9 @@ export class LocalStore implements Store {
       return []
     }
     const items = await Promise.all(files.map(async (f) => JSON.parse(await readFile(path.join(dir, f), 'utf8')) as DemoProduct))
-    return items.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, limit)
+    const allowed = visibleTo(viewer)
+    // Old local drafts without a visitor count as showcase.
+    const mine = items.filter((e) => allowed.includes(e.visitor ?? SHOWCASE))
+    return dedupeDrafts(mine.sort((a, b) => b.createdAt.localeCompare(a.createdAt))).slice(0, limit)
   }
 }

@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = run.copy.descriptions.en.slice(0, 155)
   return {
     title: `${run.copy.name} | AI product-content pipeline`,
+    robots: run.source === 'live' ? { index: false, follow: false } : undefined,
     description,
     openGraph: { title: run.copy.name, description, images: [{ url: run.outputUrl, width: run.width, height: run.height, alt: run.copy.altText }] },
     twitter: { card: 'summary_large_image', title: run.copy.name, description, images: [run.outputUrl] },

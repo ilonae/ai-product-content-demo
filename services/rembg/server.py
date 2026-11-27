@@ -5,12 +5,14 @@ POST /remove-bg   body: raw image bytes (PNG/JPEG/WebP)  ->  transparent PNG
 GET  /health      -> {"ok": true, "model": "...", "models": [...]}
 
 Full resolution in, full resolution out (no downscaling).
-Set REMBG_TOKEN to require `Authorization: Bearer <token>` (recommended in production).
+Set REMBG_TOKEN to require `Authorization: Bearer <token>`. On Fly.io the service refuses to start
+without it, so a public deployment can never be used by strangers.
 """
 import hmac
 import io
 import json
 import os
+import sys
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
@@ -20,6 +22,8 @@ from rembg import new_session, remove
 
 PORT = int(os.environ.get("PORT", "8080"))
 TOKEN = os.environ.get("REMBG_TOKEN", "")
+if not TOKEN and os.environ.get("FLY_APP_NAME"):
+    sys.exit("REMBG_TOKEN is required on Fly.io: fly secrets set REMBG_TOKEN=$(openssl rand -hex 24)")
 # isnet-general-use gives sharper, cleaner product edges than u2net (compared on the demo samples).
 DEFAULT_MODEL = os.environ.get("REMBG_MODEL", "isnet-general-use")
 ALLOWED = [m.strip() for m in os.environ.get("REMBG_MODELS", f"{DEFAULT_MODEL},u2net").split(",") if m.strip()]

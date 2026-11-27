@@ -1,12 +1,13 @@
 import { timingSafeEqual } from 'node:crypto'
 import { z } from 'zod'
-import { getConfig, localFallbacksAllowed } from '@/lib/config'
+import { getConfig } from '@/lib/config'
 import { CONNECTORS, findConnector, payloadFromRun } from '@/lib/connectors'
 import { loadOutputImage } from '@/lib/connectors/image'
 import { errorMessage } from '@/lib/errors'
 import { clientIp, dayKey, getCounter, hashIp } from '@/lib/guards'
 import { RUN_ID_RE } from '@/lib/id'
 import { getRun } from '@/lib/runs'
+import { newVisitorId, readVisitorCookie, SHOWCASE, visitorCookie, visitorKey } from '@/lib/visitor'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -21,8 +22,11 @@ function hasOwnerToken(req: Request): boolean {
   return given.length === want.length && timingSafeEqual(given, want)
 }
 
-/** Owner = valid PUBLISH_TOKEN, or local development (never on a public deployment). */
-const isOwner = (req: Request) => hasOwnerToken(req) || localFallbacksAllowed()
+/**
+ * Owner = valid PUBLISH_TOKEN, or local development. Deliberately NOT tied to ALLOW_LOCAL_FALLBACKS:
+ * a production build never treats a visitor as the owner without the token.
+ */
+const isOwner = (req: Request) => hasOwnerToken(req) || process.env.NODE_ENV !== 'production'
 
 /** Which targets exist, which are set up, and whether this visitor may use the owner-only ones. */
 export async function GET(req: Request) {
@@ -82,8 +86,22 @@ export async function POST(req: Request) {
     const payload = payloadFromRun(run, getConfig().siteUrl, body.data.lang)
     // Real stores get the image file itself (works without a public URL); the demo store only needs the URL.
     if (connector.ownerOnly) payload.image = await loadOutputImage(run)
-    const result = await connector.publish(payload)
-    return Response.json(result)
+    // Demo store: the owner's drafts are the showcase; a visitor's drafts are visible to that visitor only.
+    let visitor: string | undefined
+    let setCookie: string | undefined
+    if (!connector.ownerOnly) {
+      if (isOwner(req)) visitor = SHOWCASE
+      else {
+        let raw = readVisitorCookie(req.headers.get('cookie'))
+        if (!raw) {
+          raw = newVisitorId()
+          setCookie = visitorCookie(raw)
+        }
+        visitor = visitorKey(raw)
+      }
+    }
+    const result = await connector.publish(payload, { visitor })
+    return Response.json(result, setCookie ? { headers: { 'set-cookie': setCookie } } : undefined)
   } catch (e) {
     console.error('[publish]', connector.id, errorMessage(e))
     return Response.json({ error: errorMessage(e) }, { status: 502 })

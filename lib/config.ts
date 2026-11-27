@@ -9,7 +9,13 @@ function num(name: string, fallback: number): number {
  * In-memory counters, local file storage and skipping Turnstile are development conveniences.
  * Production refuses them unless ALLOW_LOCAL_FALLBACKS=1 (for `next start` on your own machine only).
  */
-export const localFallbacksAllowed = () => process.env.NODE_ENV !== 'production' || process.env.ALLOW_LOCAL_FALLBACKS === '1'
+/**
+ * Local fallbacks (no bot check, in-memory limits, files in .data/) are for development, or for
+ * `next start` on your own machine with ALLOW_LOCAL_FALLBACKS=1. Never on Vercel: there the flag
+ * is ignored, so a stray env var can't switch off the bot check or the shared spend cap.
+ */
+export const localFallbacksAllowed = () =>
+  process.env.NODE_ENV !== 'production' || (process.env.ALLOW_LOCAL_FALLBACKS === '1' && !process.env.VERCEL)
 
 export type CopyProvider = 'anthropic' | 'openai' | 'mock'
 

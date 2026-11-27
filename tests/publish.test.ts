@@ -37,9 +37,9 @@ afterEach(() => {
 
 describe('publishing', () => {
   it('publishes to the built-in demo store and lists the draft, newest first', async () => {
-    const res = await demoStore.publish(payloadFromRun(run, 'http://localhost:3100', 'de'))
+    const res = await demoStore.publish(payloadFromRun(run, 'http://localhost:3100', 'de'), { visitor: 'showcase' })
     expect(res).toEqual({ connector: 'demo', externalId: 'pubtest12345', adminUrl: '/store#pubtest12345' })
-    const items = await getStore().listDemoProducts()
+    const items = await getStore().listDemoProducts(null)
     expect(items[0]).toMatchObject({ runId: 'pubtest12345', lang: 'de', product: { title: 'Deep Blue Vase', price: 49, tags: ['vase', 'sale'] } })
     expect(demoStore.ownerOnly).toBe(false)
   })

@@ -2,11 +2,15 @@ node_modules/
 .next/
 out/
 .data/
-.env
-.env*.local
+# Secrets: every env file except the template, including iCloud copies (".env.local 2")
+.env*
+!.env.example
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
 services/rembg/.venv/
 __pycache__/
 samples/*.jpg
+# iCloud conflict copies ("page 2.tsx", ".env.local 2"); never commit them
+* 2
+* 2.*

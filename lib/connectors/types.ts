@@ -32,6 +32,12 @@ export interface PublishResult {
   adminUrl?: string
 }
 
+/** Who is publishing. The demo store keeps each visitor's drafts to that visitor. */
+export interface PublishContext {
+  /** Hashed visitor id, or 'showcase' for the owner (shown to everyone). */
+  visitor?: string
+}
+
 export interface Connector {
   id: string
   label: string
@@ -42,5 +48,5 @@ export interface Connector {
   /** One line for the UI when it isn't configured. */
   setupHint?: string
   /** Always creates a draft: a human reviews AI copy before it goes live. */
-  publish(product: ProductPayload): Promise<PublishResult>
+  publish(product: ProductPayload, ctx?: PublishContext): Promise<PublishResult>
 }

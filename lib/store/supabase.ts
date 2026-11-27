@@ -1,6 +1,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import { RUN_ID_RE } from '../id'
 import type { Run } from '../types'
+import { dedupeDrafts, SHOWCASE, visibleTo } from '../visitor'
 import type { DemoProduct, ImageName, Store } from './types'
 
 const BUCKET = 'runs'
@@ -40,13 +41,38 @@ export class SupabaseStore implements Store {
   }
 
   async saveDemoProduct(entry: DemoProduct) {
-    const { error } = await this.db.from('demo_store').upsert({ id: entry.runId, created_at: entry.createdAt, data: entry })
+    const visitor = entry.visitor ?? SHOWCASE
+    const { error } = await this.db.from('demo_store').upsert({ id: `${entry.runId}:${visitor}`, created_at: entry.createdAt, visitor, data: entry })
     if (error) throw new Error(`demo store insert failed: ${error.message}`)
   }
 
-  async listDemoProducts(limit = 48) {
-    const { data, error } = await this.db.from('demo_store').select('data').order('created_at', { ascending: false }).limit(limit)
+  async listDemoProducts(viewer: string | null, limit = 48) {
+    const { data, error } = await this.db
+      .from('demo_store')
+      .select('data')
+      .in('visitor', visibleTo(viewer))
+      .order('created_at', { ascending: false })
+      .limit(limit)
     if (error || !data) return []
-    return data.map((r) => r.data as DemoProduct)
+    return dedupeDrafts(data.map((r) => r.data as DemoProduct))
+  }
+
+  /** Storage files go through the Storage API (Supabase refuses SQL deletes on storage.objects). */
+  async purgeExpired({ runsBefore, draftsBefore }: { runsBefore: Date; draftsBefore: Date }) {
+    const drafts = await this.db.from('demo_store').delete({ count: 'exact' }).neq('visitor', SHOWCASE).lt('created_at', draftsBefore.toISOString())
+    if (drafts.error) throw new Error(`draft purge failed: ${drafts.error.message}`)
+
+    const old = await this.db.from('runs').select('id').eq('source', 'live').lt('created_at', runsBefore.toISOString()).limit(500)
+    if (old.error) throw new Error(`run lookup failed: ${old.error.message}`)
+    const ids = (old.data ?? []).map((r) => r.id as string).filter((id) => RUN_ID_RE.test(id))
+    if (ids.length > 0) {
+      const files = await this.db.storage.from(BUCKET).remove(ids.flatMap((id) => [`${id}/original.png`, `${id}/output.png`]))
+      if (files.error) throw new Error(`storage purge failed: ${files.error.message}`)
+      const linked = await this.db.from('demo_store').delete().in('data->>runId', ids)
+      if (linked.error) throw new Error(`draft purge failed: ${linked.error.message}`)
+      const rows = await this.db.from('runs').delete().in('id', ids)
+      if (rows.error) throw new Error(`run purge failed: ${rows.error.message}`)
+    }
+    return { runs: ids.length, drafts: drafts.count ?? 0 }
   }
 }

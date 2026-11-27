@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
 import { getStore } from '@/lib/store'
 import type { DemoProduct } from '@/lib/store/types'
 import { BADGES } from '@/lib/types'
+import { keyFromCookieValue, VISITOR_COOKIE } from '@/lib/visitor'
 
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Demo store | AI product-content pipeline', description: 'Drafts published from the AI product-content demo.' }
@@ -11,7 +13,8 @@ const BADGE_TAGS = Object.keys(BADGES) as (keyof typeof BADGES)[]
 
 async function products(): Promise<DemoProduct[]> {
   try {
-    return await getStore().listDemoProducts(48)
+    const viewer = keyFromCookieValue((await cookies()).get(VISITOR_COOKIE)?.value)
+    return await getStore().listDemoProducts(viewer, 48)
   } catch {
     return []
   }
@@ -25,8 +28,8 @@ export default async function StorePage() {
       <p className="caption">Demo store · drafts</p>
       <h1 className="mt-2 text-[28px] font-semibold leading-tight sm:text-[34px]">A shop that receives your listings.</h1>
       <p className="mt-3 max-w-2xl text-muted">
-        Everything published to the demo store lands here as a draft, exactly as a real shop would receive it: image, name,
-        description, key features, price and tags.
+        What you publish to the demo store lands here as a draft, exactly as a real shop would receive it: image, name,
+        description, key features, price and tags. Only you see your drafts, and they are deleted after 7 days.
       </p>
 
       {items.length === 0 ? (

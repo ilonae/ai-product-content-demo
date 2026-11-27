@@ -4,6 +4,7 @@ import { getConfig } from '@/lib/config'
 import { errorMessage, PipelineError } from '@/lib/errors'
 import { admitLiveRun, clientIp, getCounter, hashIp, settleLiveRun, verifyTurnstile } from '@/lib/guards'
 import { validateImage } from '@/lib/image'
+import { moderateUpload } from '@/lib/moderation'
 import { studioGateEnabled, studioQuality } from '@/lib/quality-server'
 import { defaultDeps, runPipeline, type PipelineFailure } from '@/lib/pipeline'
 import { maskCoverage } from '@/lib/providers/retouch'
@@ -115,6 +116,19 @@ export async function POST(req: Request) {
   if (studioGateEnabled()) {
     const q = await studioQuality(bytes)
     if (!q.pass) return json({ error: 'This photo isn’t studio quality yet.', reason: 'quality', checks: q.checks }, 422)
+  }
+
+  // 4c. Content check (OpenAI moderation, free): nothing unsafe is processed, stored or shown on a public page.
+  try {
+    const text = Object.values(fields.data).filter((v): v is string => typeof v === 'string').join('\n')
+    const m = await moderateUpload(bytes, text)
+    if (!m.ok) {
+      console.warn('[generate] upload refused by moderation:', m.categories.join(', '))
+      return json({ error: 'This photo or text can’t be used in the demo. Please try a different product photo.', reason: 'moderation' }, 422)
+    }
+  } catch (e) {
+    console.error('[generate] moderation unavailable:', errorMessage(e))
+    return json({ error: 'The upload check is unavailable. Please try again in a minute.', reason: 'moderation' }, 503)
   }
 
   // 5. Spend cap + per-IP limit; reserves the run's estimated cost.

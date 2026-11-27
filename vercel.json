@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "schedules": {
+    "purge-expired": { "schedule": "15 3 * * *", "path": "/api/purge", "requestMethod": "GET" }
+  }
+}
