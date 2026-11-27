@@ -14,3 +14,4 @@ samples/*.jpg
 # iCloud conflict copies ("page 2.tsx", ".env.local 2"); never commit them
 * 2
 * 2.*
+.vercel

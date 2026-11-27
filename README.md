@@ -37,8 +37,8 @@ Browser ──> Next.js 16 (Vercel)
               ├──> rembg service (Docker; Fly.io/Railway)   background removal (CPU)
               ├──> Stability AI                             fallback cut-out + optional upscale
               ├──> LLM: OpenAI gpt-6.2-sol (default) or Claude product copy in DE/EN/ES
-              ├──> Supabase                                 Storage (images) + Postgres (runs)
-              └──> Upstash Redis                            rate limits + daily spend counter
+              ├──> Vercel Blob                              images (deleted by the daily purge)
+              └──> Upstash Redis                            runs + drafts (self-expiring), rate limits, spend counter
 ```
 
 ### Pipeline stages (shown live to the visitor: this is the "provable" part)
@@ -122,8 +122,9 @@ Because the image is uploaded as a file, publishing to Shopify and WooCommerce a
 |---|---|---|
 | Next.js app | Vercel | hobby tier is fine for a demo |
 | rembg service | Fly.io or Railway | CPU container that scales to zero (`services/rembg/`) |
-| Database + image storage | Supabase | free tier covers a demo |
-| Rate limit / spend counter | Upstash Redis | free tier covers a demo |
+| Image storage | Vercel Blob (public store) | free tier covers a demo |
+| Runs, drafts, rate limit, spend counter | Upstash Redis | free tier covers a demo; no database needed |
+| Alternative storage | Supabase (`supabase/schema.sql`) | used only when no Blob token is set |
 | CDN / Turnstile | Cloudflare | free |
 
 ---
@@ -134,9 +135,8 @@ Because the image is uploaded as a file, publishing to Shopify and WooCommerce a
 cp .env.example .env.local      # fill in the values; PIPELINE_MOCK=1 runs fully offline
 npm install
 
-# 1) create the DB schema: paste supabase/schema.sql into the Supabase SQL editor
-# 2) start or deploy the rembg service (services/rembg/README.md)
-# 3) run the app
+# 1) optional: start or deploy the rembg service (services/rembg/README.md); without it, Stability does the cut-out
+# 2) run the app (locally everything falls back to files in .data/)
 npm run dev
 ```
 
@@ -153,9 +153,9 @@ With `PIPELINE_MOCK=1` and no keys, everything runs locally: a naive cut-out, te
 - `DAILY_SPEND_CAP_USD`: hard ceiling for all visitors together, default **$0.15 a day**. The live path closes for the rest of the UTC day when the next run's worst case would exceed it; the gallery stays open.
 - `MAX_RUNS_PER_IP_PER_DAY`: default 2.
 - `EST_COST_*_USD`: per-stage estimates reserved against the cap. The defaults use November 2026 prices: Stability charges $0.05 for a background removal or an inpaint and $0.02 for a fast upscale; a copy call on gpt-6.2-sol measured about 1,040 input and 880 output tokens, about $0.011. A typical run (self-hosted rembg, one copy call) costs about a cent. Check them when prices change.
-- Uploads are capped at 4 MB (Vercel's body limit is 4.5 MB). The vision model gets a 1024 px JPEG, not the full image.
+- Uploads are capped at 4 MB (Vercel's body limit is 4.5 MB); larger photos are shrunk in the browser first. The vision model gets a 1024 px JPEG, not the full image.
 - The gallery is always free: it serves cached outputs and makes no provider calls.
-- **Retention:** live uploads are public via their permalink. Schedule the 30-day purge in `supabase/schema.sql` before sharing the link widely.
+- **Retention:** live uploads are public via their permalink (never indexed). Run records and visitors' drafts expire in Redis after 30 and 7 days; the daily schedule in `vercel.json` (`/api/purge`, needs `CRON_SECRET`) deletes the images from Blob.
 
 ---
 
@@ -165,7 +165,7 @@ With `PIPELINE_MOCK=1` and no keys, everything runs locally: a naive cut-out, te
 npm run typecheck && npm test && npm run build
 ```
 
-There are 62 tests covering the image stages, the pipeline (stage order, live reporting, failure path), the studio-quality gate, the retouching tools (AI inpainting with a local fallback, only the masked area changes, grow into shadow), the guardrails (rate limit, spend cap and refunds, the $0.15 daily cap across all visitors, trusted client IP, salt, pixel limit), upload moderation (fails closed), demo-store privacy, the purge secret, the prompt and the copy checker, publishing (demo store drafts, image uploads to Shopify and WordPress, the Shopify token exchange), and every connector (Shopify draft creation and user errors, webhook signature, CSV escaping and formula injection). CI runs the same on every push (`.github/workflows/ci.yml`).
+There are 65 tests covering the image stages, the pipeline (stage order, live reporting, failure path), the studio-quality gate, the retouching tools (AI inpainting with a local fallback, only the masked area changes, grow into shadow), the guardrails (rate limit, spend cap and refunds, the $0.15 daily cap across all visitors, trusted client IP, salt, pixel limit), upload moderation (fails closed), demo-store privacy, the purge secret, the prompt and the copy checker, publishing (demo store drafts, image uploads to Shopify and WordPress, the Shopify token exchange), and every connector (Shopify draft creation and user errors, webhook signature, CSV escaping and formula injection). CI runs the same on every push (`.github/workflows/ci.yml`).
 
 ## What to customise
 

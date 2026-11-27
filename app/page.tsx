@@ -144,7 +144,7 @@ export default async function Home() {
       </Sheet>
 
       <Sheet n="02" id="try" label="Light table" tone="table" title="Try it on the light table." lede="Drop your own studio photo, or start with one of the samples.">
-        <Workbench presets={BRAND_PRESETS.map(({ id, name, bio }) => ({ id, name, bio }))} samples={samples} siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
+        <Workbench presets={BRAND_PRESETS.map(({ id, name, bio }) => ({ id, name, bio }))} samples={samples} siteKey={process.env.TURNSTILE_SITE_KEY} />
       </Sheet>
 
       <Sheet n="03" id="gallery" label="Gallery" title="Real runs, nothing staged." lede="Each one is a cached pipeline run. Open it to see every stage, its timing and the model that ran it.">

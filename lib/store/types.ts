@@ -14,7 +14,7 @@ export interface DemoProduct {
 export type ImageName = 'original.png' | 'output.png'
 
 export interface Store {
-  kind: 'local' | 'supabase' | 'static'
+  kind: 'local' | 'supabase' | 'redis' | 'static'
   /** Returns the public URL of the stored image. */
   putImage(runId: string, name: ImageName, png: Buffer): Promise<string>
   saveRun(run: Run): Promise<void>

@@ -1,15 +1,12 @@
 import { timingSafeEqual } from 'node:crypto'
 import { errorMessage } from '@/lib/errors'
+import { retention } from '@/lib/retention'
 import { getStore } from '@/lib/store'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 const DAY = 86_400_000
-const days = (name: string, fallback: number) => {
-  const n = Number(process.env[name])
-  return Number.isFinite(n) && n > 0 ? n : fallback
-}
 
 function authorized(req: Request): boolean {
   const secret = process.env.CRON_SECRET
@@ -30,9 +27,10 @@ export async function GET(req: Request) {
     const store = getStore()
     if (!store.purgeExpired) return Response.json({ skipped: `the ${store.kind} store keeps everything` })
     const now = Date.now()
+    const { runDays, draftDays } = retention()
     const result = await store.purgeExpired({
-      runsBefore: new Date(now - days('RETENTION_DAYS', 30) * DAY),
-      draftsBefore: new Date(now - days('DRAFT_RETENTION_DAYS', 7) * DAY),
+      runsBefore: new Date(now - runDays * DAY),
+      draftsBefore: new Date(now - draftDays * DAY),
     })
     console.info('[purge]', result)
     return Response.json(result)
